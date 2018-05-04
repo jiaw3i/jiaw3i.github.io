@@ -1652,6 +1652,13 @@ pre .javascript .function {
 .fancybox-close:hover {
   border: none;
 }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
+}
 .rtl.post-body p,
 .rtl.post-body a,
 .rtl.post-body h1,
@@ -1833,7 +1840,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #94ffff;
+  background: #98fff0;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3068,6 +3075,7 @@ body {
   border-radius: 23%;
 }
 .site-title {
+  font-weight: bold;
   font-size: 40px;
   font-family: STLiti;
 }
@@ -3078,4 +3086,8 @@ body {
   font-size: 20px;
   color: #ae0f7b;
   font-family: FZYaoti;
+}
+.header-inner {
+  background-color: rgba(245,245,245,0.8);
+  opacity: 1;
 }
