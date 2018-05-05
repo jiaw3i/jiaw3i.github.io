@@ -107,7 +107,7 @@
 
 
 
-  <meta name="keywords" content="CTF,write up," />
+  <meta name="keywords" content="python,pymssql," />
 
 
 
@@ -118,21 +118,20 @@
 
 
 
-<meta name="description" content="作为一个CTF新手，第一次写write up还是有些惶恐的  这个题的题目是一个颜文字，然而…解决整个题的过程跟颜文字一点关系都没有。 刺不刺激，惊不惊喜  这个题的整体思路就是进制转换，先将16进制转换为10进制，再对128求余，剩下的结果转换为字符。 先仔细观察这个字符串的特点“d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4">
-<meta name="keywords" content="CTF,write up">
+<meta name="description" content="今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0 这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：pip install D:\Twi">
+<meta name="keywords" content="python,pymssql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DDCTF 掀桌子题Write up">
-<meta property="og:url" content="https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/index.html">
+<meta property="og:title" content="python3安装pymssql库时遇到的问题及解决方法">
+<meta property="og:url" content="https://hjw-cn.github.io/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/index.html">
 <meta property="og:site_name" content="Ca1m&#39;s Blog">
-<meta property="og:description" content="作为一个CTF新手，第一次写write up还是有些惶恐的  这个题的题目是一个颜文字，然而…解决整个题的过程跟颜文字一点关系都没有。 刺不刺激，惊不惊喜  这个题的整体思路就是进制转换，先将16进制转换为10进制，再对128求余，剩下的结果转换为字符。 先仔细观察这个字符串的特点“d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4">
+<meta property="og:description" content="今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0 这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：pip install D:\Twi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://hjw-cn.github.io/img/掀桌子.png">
-<meta property="og:image" content="https://hjw-cn.github.io/img/psb.jpg">
-<meta property="og:updated_time" content="2018-05-02T11:16:07.941Z">
+<meta property="og:image" content="https://hjw-cn.github.io/img/pymssql.png">
+<meta property="og:updated_time" content="2018-05-05T07:34:54.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DDCTF 掀桌子题Write up">
-<meta name="twitter:description" content="作为一个CTF新手，第一次写write up还是有些惶恐的  这个题的题目是一个颜文字，然而…解决整个题的过程跟颜文字一点关系都没有。 刺不刺激，惊不惊喜  这个题的整体思路就是进制转换，先将16进制转换为10进制，再对128求余，剩下的结果转换为字符。 先仔细观察这个字符串的特点“d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4">
-<meta name="twitter:image" content="https://hjw-cn.github.io/img/掀桌子.png">
+<meta name="twitter:title" content="python3安装pymssql库时遇到的问题及解决方法">
+<meta name="twitter:description" content="今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0 这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：pip install D:\Twi">
+<meta name="twitter:image" content="https://hjw-cn.github.io/img/pymssql.png">
 
 
 
@@ -162,13 +161,13 @@
 
 
 
-  <link rel="canonical" href="https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/"/>
+  <link rel="canonical" href="https://hjw-cn.github.io/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/"/>
 
 
 
 
 
-  <title>DDCTF 掀桌子题Write up | Ca1m's Blog</title>
+  <title>python3安装pymssql库时遇到的问题及解决方法 | Ca1m's Blog</title>
   
 
 
@@ -349,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/">
+    <link itemprop="mainEntityOfPage" href="https://hjw-cn.github.io/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiawei Han">
@@ -366,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DDCTF 掀桌子题Write up</h1>
+          <h1 class="post-title" itemprop="name headline">python3安装pymssql库时遇到的问题及解决方法</h1>
         
 
         <div class="post-meta">
@@ -378,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T18:49:44+08:00">
-                2018-05-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-05T15:17:00+08:00">
+                2018-05-05
               </time>
             
 
@@ -397,8 +396,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/02/DDCTF-掀桌子题Write-up/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/02/DDCTF-掀桌子题Write-up/" itemprop="commentCount"></span>
+                <a href="/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -406,7 +405,7 @@
 
           
           
-             <span id="/2018/05/02/DDCTF-掀桌子题Write-up/" class="leancloud_visitors" data-flag-title="DDCTF 掀桌子题Write up">
+             <span id="/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/" class="leancloud_visitors" data-flag-title="python3安装pymssql库时遇到的问题及解决方法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,56 +436,11 @@
       
 
       
-        <p>作为一个CTF新手，第一次写write up还是有些惶恐的</p>
-<p><img src="/img/掀桌子.png" alt=""></p>
-<p>这个题的题目是一个颜文字，然而…解决整个题的过程跟颜文字一点关系都没有。</p>
-<font color="#3d8db9" align="center" size="5"><p>刺不刺激，惊不惊喜</p><p></p></font>
-
-<p>这个题的整体思路就是进制转换，先将16进制转换为10进制，再对128求余，剩下的结果转换为字符。</p>
-<p>先仔细观察这个字符串的特点“d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9e1e6b<br>3e3b9e4b3b7b7e2b6b1e4b2b6b9e2b1b1b3b3b7e6b3b3b0e3b9b3b5e6fd”<br>会发现字母最大就是f 是16进制没跑了</p>
-<p>16进制一般是两个字符组成一个字节，拆解，转换成十进制之后会发现超出ASCII码范围，ASCII有0-127，<br>所以脑洞大开 对128取余，之后再转换成字符。Bingo！！</p>
-<p>下面上代码：</p>
-<pre><code>#coding:utf-8 
-import re
-import urllib
-
-list1=[]
-list2=[]
-
-
-s = &quot;d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9b2b2e1e2b9b9b7b4e1b4
-b7e3e4b3b2b2e3e6b4b3e2b5b0b6b1b0e6e1e5e1b5fd&quot;
-
-print len(s)
-result=re.sub(r&quot;(?&lt;=\w)(?=(?:\w\w)+$)&quot;,&quot; &quot;, s)
-print result
-urlencode_s=&quot;%&quot;+result.replace(&quot; &quot;,&quot;%&quot;)
-print urlencode_s
-hex_s = &quot;0x&quot;+result.replace(&quot; &quot;,&quot;0x&quot;)
-print hex_s
-print hex_s[-4:8]
-list_hex = []
-
-for i in range(len(hex_s)):
-    if((i+1)%4==0):
-        print hex_s[(i-3):(i+1)]
-        list1.append(hex_s[(i-3):(i+1)])
-        print i
-    else:
-        print i
-        continue
-print list1
-
-for i in list1:
-    list2.append(int(i,16))
-print list2
-list3=[]
-for i in range(len(list2)):
-    list3.append(chr(int(list2[i])-128))
-s = &quot;&quot;.join(list3)
-print s
-</code></pre><p>PS：第一次参加CTF比赛，只做出来一道题。。。作为353名中的一份子我可能是最菜的 </p>
-<p>表情包奉上<br><img src="/img/psb.jpg" alt=""></p>
+        <p>今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required<br>我的电脑里的确没有vc++14.0</p>
+<p>这里提一下解决方法：<br><strong>1.首先访问<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">点击这里</a>,手动找到对应自己python版本的pymssql(cp后面是python版本)</strong><br><img src="/img/pymssql.png" alt=""></p>
+<p><strong>我的python版本是3.6 AMD64 所以我下载图中红圈的那个</strong></p>
+<p><strong>2.在cmd里执行：</strong><br><strong>pip install D:\Twisted-17.5.0-cp36-cp36m-win_amd64.whl</strong></p>
+<font align="center" color="#000000" size="6"><p>OK successful！！！</p><p></p></font>
 
       
     </div>
@@ -506,7 +460,7 @@ print s
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/" title="DDCTF 掀桌子题Write up">https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/</a>
+    <a href="https://hjw-cn.github.io/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/" title="python3安装pymssql库时遇到的问题及解决方法">https://hjw-cn.github.io/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -530,9 +484,9 @@ print s
       
         <div class="post-tags">
           
-            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
-            <a href="/tags/write-up/" rel="tag"><i class="fa fa-tag"></i> write up</a>
+            <a href="/tags/pymssql/" rel="tag"><i class="fa fa-tag"></i> pymssql</a>
           
         </div>
       
@@ -545,8 +499,8 @@ print s
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/29/域名重定向中的遇到的一些问题/" rel="next" title="域名重定向中的遇到的一些问题">
-                <i class="fa fa-chevron-left"></i> 域名重定向中的遇到的一些问题
+              <a href="/2018/05/02/DDCTF-掀桌子题Write-up/" rel="next" title="DDCTF 掀桌子题Write up">
+                <i class="fa fa-chevron-left"></i> DDCTF 掀桌子题Write up
               </a>
             
           </div>
@@ -554,10 +508,6 @@ print s
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/" rel="prev" title="python3安装pymssql库时遇到的问题及解决方法">
-                python3安装pymssql库时遇到的问题及解决方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
