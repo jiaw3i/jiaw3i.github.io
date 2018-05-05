@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python3安装pymssql库时遇到的问题及解决方法]]></title>
     <url>%2F2018%2F05%2F05%2Fpython3%E5%AE%89%E8%A3%85pymssql%E5%BA%93%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0 这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：pip install D:\Twisted-17.5.0-cp36-cp36m-win_amd64.whl OK successful！！！]]></content>
+    <content type="text"><![CDATA[今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0 这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：我下载的在E盘中pip install E:\pymssql-2.1.4.dev5-cp36-cp36m-win_amd64.whl OK successful！！！]]></content>
       <tags>
         <tag>python</tag>
         <tag>pymssql</tag>
