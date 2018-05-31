@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python3.X连接sqlserver2008]]></title>
     <url>%2F2018%2F05%2F09%2Fpython3-X%E8%BF%9E%E6%8E%A5sqlserver2008%2F</url>
-    <content type="text"><![CDATA[因为我们学校数据库教学用的是sqlserver2008版本所以我以python使用数据库用的是sqlserver]]></content>
+    <content type="text"><![CDATA[因为我们学校数据库教学用的是sqlserver2008版本所以我以python使用数据库用的是sqlserver 电脑重装系统了,sql server没了,太大了不想安装了 这个文章就不更了,有时间写MySQL吧]]></content>
       <tags>
         <tag>python3</tag>
         <tag>sqlserver</tag>
