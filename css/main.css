@@ -1840,7 +1840,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #86ece3;
+  background: #ff0bda;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3059,7 +3059,7 @@ pre .javascript .function {
   }
 }
 body {
-  background: url("https://source.unsplash.com/random/1600x900");
+  background: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
@@ -3071,7 +3071,7 @@ body {
 }
 .back-to-top.back-to-top-on {
   bottom: 30px;
-  background-color: #0a9caf;
+  background-color: #000;
   border-radius: 23%;
 }
 .site-title {
@@ -3083,7 +3083,7 @@ body {
   color: #216cdd;
 }
 .site-subtitle {
-  font-size: 20px;
+  font-size: 14px;
   color: #ae0f7b;
   font-family: FZYaoti;
 }
