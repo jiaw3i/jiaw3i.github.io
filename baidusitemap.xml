@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>https://hjw-cn.github.io/2018/05/05/python3%E5%AE%89%E8%A3%85pymssql%E5%BA%93%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2018-06-01T10:40:28.920Z</lastmod>
+    <data>
+        <display>
+        <title>python3安装pymssql库时遇到的问题及解决方法</title>
+        <pubTime>2018-05-05T07:17:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>pymssql</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hjw-cn.github.io/2018/05/09/python3-X%E8%BF%9E%E6%8E%A5sqlserver2008/</loc>
     <lastmod>2018-05-31T08:14:22.062Z</lastmod>
     <data>
@@ -35,25 +54,6 @@
         <tag>机器学习</tag>
          
         <tag>数据挖掘</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hjw-cn.github.io/2018/05/05/python3%E5%AE%89%E8%A3%85pymssql%E5%BA%93%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2018-05-05T07:37:49.578Z</lastmod>
-    <data>
-        <display>
-        <title>python3安装pymssql库时遇到的问题及解决方法</title>
-        <pubTime>2018-05-05T07:17:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>pymssql</tag>
          
          
            
