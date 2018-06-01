@@ -1843,7 +1843,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8fc8ff;
+  background: #8237bd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2826,4 +2826,12 @@ body {
   bottom: 10px;
   background-color: #87daff;
   border-radius: 5px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #ccc;
 }
