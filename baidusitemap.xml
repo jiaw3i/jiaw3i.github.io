@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>https://hjw-cn.github.io/2018/06/01/%E7%94%9F%E5%91%BD%E4%B8%8D%E8%AF%A5%E8%A2%AB%E6%B5%AA%E8%B4%B9/</loc>
+    <lastmod>2018-06-01T12:49:33.827Z</lastmod>
+    <data>
+        <display>
+        <title>读万卷书，行万里路，做万人迷。</title>
+        <pubTime>2018-06-01T12:39:06.000Z</pubTime>
+        
+        <tag>感悟</tag>
+         
+        <tag>生活</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hjw-cn.github.io/2018/05/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD/</loc>
+    <lastmod>2018-06-01T12:47:12.631Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习与数据挖掘中的相关术语</title>
+        <pubTime>2018-05-09T09:18:19.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>机器学习</tag>
+         
+        <tag>数据挖掘</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hjw-cn.github.io/2018/05/05/python3%E5%AE%89%E8%A3%85pymssql%E5%BA%93%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2018-06-01T10:40:28.920Z</lastmod>
     <data>
@@ -33,27 +73,6 @@
         <tag>python3</tag>
          
         <tag>sqlserver</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hjw-cn.github.io/2018/05/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%AD%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD/</loc>
-    <lastmod>2018-05-09T09:40:14.649Z</lastmod>
-    <data>
-        <display>
-        <title>机器学习与数据挖掘中的相关术语</title>
-        <pubTime>2018-05-09T09:18:19.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>机器学习</tag>
-         
-        <tag>数据挖掘</tag>
          
          
            
