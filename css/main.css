@@ -1843,7 +1843,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #098ad1;
+  background: #bd7e87;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2803,7 +2803,7 @@ body {
   padding-bottom: 30px;
 }
 .footer {
-  color: #87daff;
+  color: #222;
 }
 .sidebar-toggle {
   right: 10px;
