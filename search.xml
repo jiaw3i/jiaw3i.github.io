@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[为java程序添加背景音乐]]></title>
+    <url>%2F2018%2F06%2F29%2F%E4%B8%BAjava%E7%A8%8B%E5%BA%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%2F</url>
+    <content type="text"><![CDATA[在类中添加如下函数：12345678910111213141516static void playMusic()&#123;//背景音乐播放 try &#123; URL cb; File f = new File("D:\\月半小夜曲.wav"); // 引号里面的是音乐文件所在的路径 cb = f.toURL(); AudioClip aau; aau = Applet.newAudioClip(cb); aau.play(); aau.loop();//循环播放 System.out.println("可以播放"); // 循环播放 aau.play() //单曲 aau.stop()停止播放 &#125; catch (MalformedURLException e) &#123; e.printStackTrace(); &#125;&#125; 想要播放音乐时，调用上面的函数就可以了，注意导入需要的包，可根据eclipse提示导入。 PS：只支持以下固定的音乐格式AIFFAUWAVMIDI（类型0和类型1文件）RMF]]></content>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序-真是磨人的小妖精]]></title>
+    <url>%2F2018%2F06%2F04%2F%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%9C%9F%E6%98%AF%E7%A3%A8%E4%BA%BA%E7%9A%84%E5%B0%8F%E5%A6%96%E7%B2%BE%2F</url>
+    <content type="text"><![CDATA[在微信小程序官方发布wx.getUserInfo接口调整之后,刚开始我还觉得那没有什么,问题不大But!!! 终于在我使用]]></content>
+      <tags>
+        <tag>WeApp</tag>
+        <tag>小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python3.6.4识别图片中的文字]]></title>
     <url>%2F2018%2F06%2F02%2Fpython3-6-4%E8%AF%86%E5%88%AB%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%2F</url>
     <content type="text"><![CDATA[我的python老师给我们布置了一个期末大作业,他说做出来了就有学分,像我们这种对学分虎视眈眈的人当然得尽力做出来啦.其实整个过程不算很难,代码也不难,下面把我的步骤写下来,并且就我遇到的问题及解决方案奉上: 首先……上源码: # coding:utf-8 from PIL import Image import pytesseract text=pytesseract.image_to_string(Image.open(&quot;chi.png&quot;),lang=&apos;chi_sim&apos;) print(text) 怎么说,除去导包和输出的代码整个主体就只是一行代码嗯,没错就是这么easy!所以不要有太大压力跟着做吧 一. 安装pillow和pytesseract 这个不用多说,两行代码,进入cmd: pip install pillow pip install pytesseract安装成功后进入第二步 二. 安装tesseract-OCR为各位看官奉上连接下载地址下载密码:mtad下载之后安装.注意注意: 必须安装到默认地址!!!安装完之后将这个文件粘贴到/tesseract-OCR/tessdata/ 文件夹下 三. 修改路径找到python安装路径打开\Lib\site-package\tesseract 编辑pytesseract.py文件修改为自己的tesseract-OCR的安装路径 保存 ok! 四. 调试运行 复制刚开始的那段代码,找一张图片去试试看吧. 附上我的运行结果:]]></content>
