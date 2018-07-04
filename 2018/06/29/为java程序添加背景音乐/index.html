@@ -107,7 +107,7 @@
 
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="Java,AudioClip," />
 
 
 
@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="在类中添加如下函数：12345678910111213141516static void playMusic()&amp;#123;//背景音乐播放		try &amp;#123;			URL cb;			File f = new File(&quot;D:\\月半小夜曲.wav&quot;); // 引号里面的是音乐文件所在的路径			cb = f.toURL();			AudioClip aau;			aau = Applet.">
-<meta name="keywords" content="Java">
+<meta name="description" content="Jdk10中可使用下面的方法给程序播放音频在类中添加如下函数：123456789101112import java.io.File;import javafx.scene.media.AudioClip;public class MusicPlay &amp;#123;	public static void playMusic() 	&amp;#123;		AudioClip ac;		ac = new Audi">
+<meta name="keywords" content="Java,AudioClip">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为java程序添加背景音乐">
+<meta property="og:title" content="为Java程序添加背景音乐">
 <meta property="og:url" content="https://hjw-cn.github.io/2018/06/29/为java程序添加背景音乐/index.html">
 <meta property="og:site_name" content="Han&#39;s Blog">
-<meta property="og:description" content="在类中添加如下函数：12345678910111213141516static void playMusic()&amp;#123;//背景音乐播放		try &amp;#123;			URL cb;			File f = new File(&quot;D:\\月半小夜曲.wav&quot;); // 引号里面的是音乐文件所在的路径			cb = f.toURL();			AudioClip aau;			aau = Applet.">
+<meta property="og:description" content="Jdk10中可使用下面的方法给程序播放音频在类中添加如下函数：123456789101112import java.io.File;import javafx.scene.media.AudioClip;public class MusicPlay &amp;#123;	public static void playMusic() 	&amp;#123;		AudioClip ac;		ac = new Audi">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-29T11:38:20.512Z">
+<meta property="og:updated_time" content="2018-07-04T06:31:52.495Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为java程序添加背景音乐">
-<meta name="twitter:description" content="在类中添加如下函数：12345678910111213141516static void playMusic()&amp;#123;//背景音乐播放		try &amp;#123;			URL cb;			File f = new File(&quot;D:\\月半小夜曲.wav&quot;); // 引号里面的是音乐文件所在的路径			cb = f.toURL();			AudioClip aau;			aau = Applet.">
+<meta name="twitter:title" content="为Java程序添加背景音乐">
+<meta name="twitter:description" content="Jdk10中可使用下面的方法给程序播放音频在类中添加如下函数：123456789101112import java.io.File;import javafx.scene.media.AudioClip;public class MusicPlay &amp;#123;	public static void playMusic() 	&amp;#123;		AudioClip ac;		ac = new Audi">
 
 
 
@@ -165,7 +165,7 @@
 
 
 
-  <title>为java程序添加背景音乐 | Han's Blog</title>
+  <title>为Java程序添加背景音乐 | Han's Blog</title>
   
 
 
@@ -363,7 +363,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">为java程序添加背景音乐</h1>
+          <h1 class="post-title" itemprop="name headline">为Java程序添加背景音乐</h1>
         
 
         <div class="post-meta">
@@ -403,7 +403,7 @@
 
           
           
-             <span id="/2018/06/29/为java程序添加背景音乐/" class="leancloud_visitors" data-flag-title="为java程序添加背景音乐">
+             <span id="/2018/06/29/为java程序添加背景音乐/" class="leancloud_visitors" data-flag-title="为Java程序添加背景音乐">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -434,9 +434,9 @@
       
 
       
-        <p>在类中添加如下函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">playMusic</span><span class="params">()</span></span>&#123;<span class="comment">//背景音乐播放</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			URL cb;</span><br><span class="line">			File f = <span class="keyword">new</span> File(<span class="string">"D:\\月半小夜曲.wav"</span>); <span class="comment">// 引号里面的是音乐文件所在的路径</span></span><br><span class="line">			cb = f.toURL();</span><br><span class="line">			AudioClip aau;</span><br><span class="line">			aau = Applet.newAudioClip(cb);</span><br><span class="line">			aau.play();	</span><br><span class="line">			aau.loop();<span class="comment">//循环播放</span></span><br><span class="line">			System.out.println(<span class="string">"可以播放"</span>);</span><br><span class="line">			<span class="comment">// 循环播放 aau.play()</span></span><br><span class="line">			<span class="comment">//单曲 aau.stop()停止播放</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>Jdk10中可使用下面的方法给程序播放音频<br>在类中添加如下函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.media.AudioClip;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MusicPlay</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">playMusic</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		AudioClip ac;</span><br><span class="line">		ac = <span class="keyword">new</span> AudioClip(<span class="keyword">new</span> File(<span class="string">"src\\com\\xust\\util\\hot.mp3"</span>).toURI().toString());</span><br><span class="line">		ac.play();   <span class="comment">//开始播放</span></span><br><span class="line">		<span class="comment">//ac.setCycleCount(1000);  //设置循环次数</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>想要播放音乐时，调用上面的函数就可以了，注意导入需要的包，可根据eclipse提示导入。</p>
-<p><strong>PS：只支持以下固定的音乐格式</strong><br>AIFF<br>AU<br>WAV<br>MIDI（类型0和类型1文件）<br>RMF </p>
+<p><strong>PS：支持mp3格式</strong></p>
 
       
     </div>
@@ -456,7 +456,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://hjw-cn.github.io/2018/06/29/为java程序添加背景音乐/" title="为java程序添加背景音乐">https://hjw-cn.github.io/2018/06/29/为java程序添加背景音乐/</a>
+    <a href="https://hjw-cn.github.io/2018/06/29/为java程序添加背景音乐/" title="为Java程序添加背景音乐">https://hjw-cn.github.io/2018/06/29/为java程序添加背景音乐/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -481,6 +481,8 @@
         <div class="post-tags">
           
             <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/AudioClip/" rel="tag"><i class="fa fa-tag"></i> AudioClip</a>
           
         </div>
       
@@ -606,7 +608,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[为java程序添加背景音乐]]></title>
+    <title><![CDATA[为Java程序添加背景音乐]]></title>
     <url>%2F2018%2F06%2F29%2F%E4%B8%BAjava%E7%A8%8B%E5%BA%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%2F</url>
-    <content type="text"><![CDATA[在类中添加如下函数：12345678910111213141516static void playMusic()&#123;//背景音乐播放 try &#123; URL cb; File f = new File("D:\\月半小夜曲.wav"); // 引号里面的是音乐文件所在的路径 cb = f.toURL(); AudioClip aau; aau = Applet.newAudioClip(cb); aau.play(); aau.loop();//循环播放 System.out.println("可以播放"); // 循环播放 aau.play() //单曲 aau.stop()停止播放 &#125; catch (MalformedURLException e) &#123; e.printStackTrace(); &#125;&#125; 想要播放音乐时，调用上面的函数就可以了，注意导入需要的包，可根据eclipse提示导入。 PS：只支持以下固定的音乐格式AIFFAUWAVMIDI（类型0和类型1文件）RMF]]></content>
+    <content type="text"><![CDATA[Jdk10中可使用下面的方法给程序播放音频在类中添加如下函数：123456789101112import java.io.File;import javafx.scene.media.AudioClip;public class MusicPlay &#123; public static void playMusic() &#123; AudioClip ac; ac = new AudioClip(new File("src\\com\\xust\\util\\hot.mp3").toURI().toString()); ac.play(); //开始播放 //ac.setCycleCount(1000); //设置循环次数 &#125;&#125; 想要播放音乐时，调用上面的函数就可以了，注意导入需要的包，可根据eclipse提示导入。 PS：支持mp3格式]]></content>
       <tags>
         <tag>Java</tag>
+        <tag>AudioClip</tag>
       </tags>
   </entry>
   <entry>
