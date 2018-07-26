@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python3 split()方法]]></title>
+    <url>%2F2018%2F07%2F26%2FPython3-spilt-%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Python3 split()语法：1str.split(str="", num=string.count(str)) split()方法可以通过自己指定的字符对字符串进行分割，并且可以指定分割次数参数： ①str –&gt; 自己指定用来分割字符串的字符 ②num –&gt; 指定分割次数这个方法返回值是一个包含分割后所有字符串的列表举例如下： 12345# encoding:utf-8str = "Hello,this is my Blog"print(str.split())print(str.split('i',1))print(str.split('s')) 输出结果为： [‘Hello,this’, ‘is’, ‘my’, ‘Blog’] [‘Hello,th’, ‘s is my Blog’] [‘Hello,thi’, ‘ i’, ‘ my Blog’]]]></content>
+      <tags>
+        <tag>Python3</tag>
+        <tag>spilt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[为Java程序添加背景音乐]]></title>
     <url>%2F2018%2F06%2F29%2F%E4%B8%BAjava%E7%A8%8B%E5%BA%8F%E6%B7%BB%E5%8A%A0%E8%83%8C%E6%99%AF%E9%9F%B3%E4%B9%90%2F</url>
     <content type="text"><![CDATA[Jdk10中可使用下面的方法给程序播放音频在类中添加如下函数：123456789101112import java.io.File;import javafx.scene.media.AudioClip;public class MusicPlay &#123; public static void playMusic() &#123; AudioClip ac; ac = new AudioClip(new File("src\\com\\xust\\util\\hot.mp3").toURI().toString()); ac.play(); //开始播放 //ac.setCycleCount(1000); //设置循环次数 &#125;&#125; 想要播放音乐时，调用上面的函数就可以了，注意导入需要的包，可根据eclipse提示导入。 PS：支持mp3格式]]></content>
