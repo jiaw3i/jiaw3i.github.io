@@ -30,7 +30,7 @@
   <entry>
     <title><![CDATA[python3.6.4识别图片中的文字]]></title>
     <url>%2F2018%2F06%2F02%2Fpython3-6-4%E8%AF%86%E5%88%AB%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%96%87%E5%AD%97%2F</url>
-    <content type="text"><![CDATA[我的python老师给我们布置了一个期末大作业,他说做出来了就有学分,像我们这种对学分虎视眈眈的人当然得尽力做出来啦.其实整个过程不算很难,代码也不难,下面把我的步骤写下来,并且就我遇到的问题及解决方案奉上: 首先……上源码: # coding:utf-8 from PIL import Image import pytesseract text=pytesseract.image_to_string(Image.open(&quot;chi.png&quot;),lang=&apos;chi_sim&apos;) print(text) 怎么说,除去导包和输出的代码整个主体就只是一行代码嗯,没错就是这么easy!所以不要有太大压力跟着做吧 一. 安装pillow和pytesseract 这个不用多说,两行代码,进入cmd: pip install pillow pip install pytesseract安装成功后进入第二步 二. 安装tesseract-OCR为各位看官奉上连接下载地址下载密码:mtad下载之后安装.注意注意: 必须安装到默认地址!!!安装完之后将这个文件粘贴到/tesseract-OCR/tessdata/ 文件夹下 三. 修改路径找到python安装路径打开\Lib\site-package\tesseract 编辑pytesseract.py文件修改为自己的tesseract-OCR的安装路径 保存 ok! 四. 调试运行 复制刚开始的那段代码,找一张图片去试试看吧. 附上我的运行结果:]]></content>
+    <content type="text"><![CDATA[我的python老师给我们布置了一个期末大作业,他说做出来了就有学分,像我们这种对学分虎视眈眈的人当然得尽力做出来啦.其实整个过程不算很难,代码也不难,下面把我的步骤写下来,并且就我遇到的问题及解决方案奉上:首先……上源码: # coding:utf-8 from PIL import Image import pytesseract text=pytesseract.image_to_string(Image.open(&quot;chi.png&quot;),lang=&apos;chi_sim&apos;) print(text) 怎么说,除去导包和输出的代码整个主体就只是一行代码嗯,没错就是这么easy!所以不要有太大压力跟着做吧 一. 安装pillow和pytesseract 这个不用多说,两行代码,进入cmd: pip install pillow pip install pytesseract安装成功后进入第二步 二. 安装tesseract-OCR为各位看官奉上连接下载地址下载密码:mtad下载之后安装.注意注意: 必须安装到默认地址!!!安装完之后将这个文件粘贴到/tesseract-OCR/tessdata/ 文件夹下 三. 修改路径找到python安装路径打开\Lib\site-package\tesseract 编辑pytesseract.py文件修改为自己的tesseract-OCR的安装路径 保存 ok! 四. 调试运行 复制刚开始的那段代码,找一张图片去试试看吧. 附上我的运行结果:]]></content>
       <tags>
         <tag>python</tag>
         <tag>OCR</tag>
@@ -67,7 +67,7 @@
   <entry>
     <title><![CDATA[python3安装pymssql库时遇到的问题及解决方法]]></title>
     <url>%2F2018%2F05%2F05%2Fpython3%E5%AE%89%E8%A3%85pymssql%E5%BA%93%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0 这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：我下载的在E盘中pip install E:\pymssql-2.1.4.dev5-cp36-cp36m-win_amd64.whl OK successful！！！]]></content>
+    <content type="text"><![CDATA[今天在安装pymssql时出现了error:Microsoft Visual C++ 14.0 is required我的电脑里的确没有vc++14.0这里提一下解决方法：1.首先访问点击这里,手动找到对应自己python版本的pymssql(cp后面是python版本) 我的python版本是3.6 AMD64 所以我下载图中红圈的那个 2.在cmd里执行：我下载的在E盘中pip install E:\pymssql-2.1.4.dev5-cp36-cp36m-win_amd64.whl OK successful！！！]]></content>
       <tags>
         <tag>python</tag>
         <tag>pymssql</tag>
@@ -85,7 +85,7 @@
   <entry>
     <title><![CDATA[域名重定向中的遇到的一些问题]]></title>
     <url>%2F2018%2F04%2F29%2F%E5%9F%9F%E5%90%8D%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%AD%E7%9A%84%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[很多人在解析自己的域名时都会遇到各种各样的问题，我在解析的时候就是跟着网上的例子一步一步来，诶，别人都能成功，我怎么也搞不成功，我这里遇到的问题是：server hold 域名在server hold状态下是无法解析成功的，且添加解析的时候不会给你提示，这个时候就需要自己去查询了，点击下面链接查询：whois万网查询 输入自己的域名查看信息，如果是处于server hold状态，我目前知道有两种可能： 1.域名没有实名认证 2.域名认证信息与身份证上信息不一致 没有实名认证的话就去实名认证一下，不过信息一定要和身份证上信息一致，不然虽然认证会成功，也有可能是server hold状态。 第2种情况可以通过域名服务–批量操作–批量过户至已经实名认证通过的信息模板去重新修改认证信息。重新认证信息无误成功后，通常情况注册局会在1-2个工作日恢复解析，建议耐心等待1-2个工作日之后再刷新查看域名状态。 我可是等了整整2天呐…┓(;´_｀)┏ 心累~~~]]></content>
+    <content type="text"><![CDATA[很多人在解析自己的域名时都会遇到各种各样的问题，我在解析的时候就是跟着网上的例子一步一步来，诶，别人都能成功，我怎么也搞不成功，我这里遇到的问题是：server hold 域名在server hold状态下是无法解析成功的，且添加解析的时候不会给你提示，这个时候就需要自己去查询了，点击下面链接查询：whois万网查询输入自己的域名查看信息，如果是处于server hold状态，我目前知道有两种可能： 1.域名没有实名认证 2.域名认证信息与身份证上信息不一致 没有实名认证的话就去实名认证一下，不过信息一定要和身份证上信息一致，不然虽然认证会成功，也有可能是server hold状态。 第2种情况可以通过域名服务–批量操作–批量过户至已经实名认证通过的信息模板去重新修改认证信息。重新认证信息无误成功后，通常情况注册局会在1-2个工作日恢复解析，建议耐心等待1-2个工作日之后再刷新查看域名状态。 我可是等了整整2天呐…┓(;´_｀)┏ 心累~~~]]></content>
       <tags>
         <tag>域名重定向</tag>
         <tag>域名解析</tag>
