@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hjw-cn.github.io">
-  <title>DDCTF 掀桌子题Write up | 韩佳卫知道的就这么点</title>
+  <title>Tag: 数据分析 | 韩佳卫知道的就这么点</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作为一个CTF新手，第一次写write up还是有些惶恐的">
-<meta name="keywords" content="CTF,write up">
-<meta property="og:type" content="article">
-<meta property="og:title" content="DDCTF 掀桌子题Write up">
-<meta property="og:url" content="https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/index.html">
+  <meta name="description" content="为生活添加乐趣">
+<meta property="og:type" content="website">
+<meta property="og:title" content="韩佳卫知道的就这么点">
+<meta property="og:url" content="https://hjw-cn.github.io/tags/数据分析/index.html">
 <meta property="og:site_name" content="韩佳卫知道的就这么点">
-<meta property="og:description" content="作为一个CTF新手，第一次写write up还是有些惶恐的">
+<meta property="og:description" content="为生活添加乐趣">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://hjw-cn.github.io/img/掀桌子.png">
-<meta property="og:image" content="https://hjw-cn.github.io/img/psb.jpg">
-<meta property="og:updated_time" content="2018-08-15T03:39:58.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DDCTF 掀桌子题Write up">
-<meta name="twitter:description" content="作为一个CTF新手，第一次写write up还是有些惶恐的">
-<meta name="twitter:image" content="https://hjw-cn.github.io/img/掀桌子.png">
+<meta name="twitter:title" content="韩佳卫知道的就这么点">
+<meta name="twitter:description" content="为生活添加乐趣">
   
     <link rel="alternative" href="/atom.xml" title="韩佳卫知道的就这么点" type="application/atom+xml">
   
@@ -166,254 +161,65 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-DDCTF-掀桌子题Write-up" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      DDCTF 掀桌子题Write up
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/09/01/数据分析学习笔记/" class="archive-article-date">
+  	<time datetime="2018-08-31T23:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/09/01/数据分析学习笔记/">数据分析学习笔记</a>
     </h1>
   
 
-        
-        <a href="/2018/05/02/DDCTF-掀桌子题Write-up/" class="archive-article-date">
-  	<time datetime="2018-05-02T10:49:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作为一个CTF新手，第一次写write up还是有些惶恐的</p>
-<p><img src="/img/掀桌子.png" alt=""><br><a id="more"></a><br>这个题的题目是一个颜文字，然而…解决整个题的过程跟颜文字一点关系都没有。</p>
-<font color="#3d8db9" align="center" size="5"><p>刺不刺激，惊不惊喜</p><p></p></font>
-
-<p>这个题的整体思路就是进制转换，先将16进制转换为10进制，再对128求余，剩下的结果转换为字符。</p>
-<p>先仔细观察这个字符串的特点“d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9e1e6b<br>3e3b9e4b3b7b7e2b6b1e4b2b6b9e2b1b1b3b3b7e6b3b3b0e3b9b3b5e6fd”<br>会发现字母最大就是f 是16进制没跑了</p>
-<p>16进制一般是两个字符组成一个字节，拆解，转换成十进制之后会发现超出ASCII码范围，ASCII有0-127，<br>所以脑洞大开 对128取余，之后再转换成字符。Bingo！！</p>
-<p>下面上代码：</p>
-<pre><code>#coding:utf-8 
-import re
-import urllib
-
-list1=[]
-list2=[]
-
-
-s = &quot;d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9b2b2e1e2b9b9b7b4e1b4
-b7e3e4b3b2b2e3e6b4b3e2b5b0b6b1b0e6e1e5e1b5fd&quot;
-
-print len(s)
-result=re.sub(r&quot;(?&lt;=\w)(?=(?:\w\w)+$)&quot;,&quot; &quot;, s)
-print result
-urlencode_s=&quot;%&quot;+result.replace(&quot; &quot;,&quot;%&quot;)
-print urlencode_s
-hex_s = &quot;0x&quot;+result.replace(&quot; &quot;,&quot;0x&quot;)
-print hex_s
-print hex_s[-4:8]
-list_hex = []
-
-for i in range(len(hex_s)):
-    if((i+1)%4==0):
-        print hex_s[(i-3):(i+1)]
-        list1.append(hex_s[(i-3):(i+1)])
-        print i
-    else:
-        print i
-        continue
-print list1
-
-for i in list1:
-    list2.append(int(i,16))
-print list2
-list3=[]
-for i in range(len(list2)):
-    list3.append(chr(int(list2[i])-128))
-s = &quot;&quot;.join(list3)
-print s
-</code></pre><p>PS：第一次参加CTF比赛，只做出来一道题。。。作为353名中的一份子我可能是最菜的 </p>
-<p>表情包奉上<br><img src="/img/psb.jpg" alt=""></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>只要一毛<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/ali.JPG">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wx.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">write up</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python3安装pymssql库时遇到的问题及解决方法
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/04/29/域名重定向中的遇到的一些问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">域名重定向中的遇到的一些问题</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
+    
 
-  
-
-  
-
-
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
 
           </div>
         </div>
@@ -436,9 +242,9 @@ print s
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

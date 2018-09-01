@@ -17,10 +17,11 @@
 <meta property="og:description" content="具体题目如下图所示：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://hjw-cn.github.io/img/三二.png">
+<meta property="og:image" content="https://hjw-cn.github.io/img/1-4.png">
 <meta property="og:image" content="https://hjw-cn.github.io/img/1_1.png">
 <meta property="og:image" content="https://hjw-cn.github.io/img/1_2.png">
 <meta property="og:image" content="https://hjw-cn.github.io/img/1-3.png">
-<meta property="og:updated_time" content="2018-08-28T11:18:24.168Z">
+<meta property="og:updated_time" content="2018-08-29T11:34:02.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三天打渔，两天晒网">
 <meta name="twitter:description" content="具体题目如下图所示：">
@@ -209,8 +210,9 @@ var _hmt = _hmt || [];
 <p><strong>第四步：编写main方法进行测试</strong></p>
 <p>由于我使用to_datetime()方法将字符串转为datetime格式，可以很好的判断输入字符串是否符合相应格式以及年月日正确，完成了基本要求和提高要求之后就可以编写main方法，根据不同情况调用前面编写的函数来进行测试。具体代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我利用了pandas库中的to_datetime()方法 </span><br><span class="line">如果格式转化出现异常，则说明用户输入的字符串并非一个有效的时间字符串或者是输入的年月日不正确</span><br><span class="line">所以使用异常处理 若发生异常 则提示 输入的字符串并非一个有效的时间字符串</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    flag = input(<span class="string">"请选择要实现的功能：\n    1.输入日期判断    2.利用txt文件测试\n"</span>)</span><br><span class="line">    <span class="keyword">if</span> int(flag) == <span class="number">1</span>:</span><br><span class="line">        str_date = input(<span class="string">"请按照 年-月-日 的格式输入需要判定的日期："</span>)</span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        我这里判断输入的字符串格式是否正确</span></span><br><span class="line"><span class="string">        我利用了pandas库中的to_datetime()方法 </span></span><br><span class="line"><span class="string">        如果格式转化出现异常，则说明用户输入的字符串并非一个有效的时间字符串</span></span><br><span class="line"><span class="string">        所以使用异常处理 若发生异常 则提示 输入的字符串并非一个有效的时间字符串</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            date = pd.to_datetime(str_date)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            print(<span class="string">"这不是一个有效的时间字符串！！"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 如果字符串输入正确则：</span></span><br><span class="line">            <span class="comment"># 调用判断的函数并传入所隔天数和输入的日期两个参数 打印出这个人在干什么</span></span><br><span class="line">            print(judge(day_number(date), str_date))</span><br><span class="line">    <span class="keyword">if</span> int(flag) == <span class="number">2</span>:</span><br><span class="line">        write_file()</span><br><span class="line">        output_file()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    flag = input(<span class="string">"请选择要实现的功能：\n    1.输入日期判断    2.利用txt文件测试\n"</span>)</span><br><span class="line">    <span class="keyword">if</span> int(flag) == <span class="number">1</span>:</span><br><span class="line">        str_date = input(<span class="string">"请按照 年-月-日 的格式输入需要判定的日期："</span>)</span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        我这里判断输入的字符串格式是否正确</span></span><br><span class="line"><span class="string">        我利用了pandas库中的to_datetime()方法 </span></span><br><span class="line"><span class="string">        如果格式转化出现异常，则说明用户输入的字符串并非一个有效的时间字符串</span></span><br><span class="line"><span class="string">        所以使用异常处理 若发生异常 则提示 输入的字符串并非一个有效的时间字符串</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            date = pd.to_datetime(str_date)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            print(<span class="string">"这不是一个正确并且有效时间字符串！！"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 如果字符串输入正确并且年份不小于2010时则：</span></span><br><span class="line">            <span class="comment"># 调用判断的函数并传入所隔天数和输入的日期两个参数 打印出这个人在干什么</span></span><br><span class="line">            <span class="keyword">if</span> date.year&lt;<span class="number">2010</span>:</span><br><span class="line">                print(<span class="string">"输入年份不能小于起始日期2010年！！"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(judge(day_number(date), str_date))</span><br><span class="line">    <span class="keyword">if</span> int(flag) == <span class="number">2</span>:</span><br><span class="line">        write_file()</span><br><span class="line">        output_file()</span><br><span class="line">        print(<span class="string">"判断结果已经写入out.txt文件中， 请查看"</span>)</span><br></pre></td></tr></table></figure>
 <p>主要测试截图如下：</p>
+<p><img src="\img\1-4.png" alt=""></p>
 <p><img src="\img\1_1.png" alt=""></p>
 <p><img src="\img\1_2.png" alt=""></p>
 <p><img src="\img\1-3.png" alt=""></p>
@@ -328,6 +330,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/09/01/数据分析学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据分析学习笔记
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/26/Python3-spilt-方法/" id="article-nav-older" class="article-nav-link-wrap">
@@ -502,22 +513,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Python3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spilt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OCR</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">python3</a>
               </li>
              
@@ -526,11 +521,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pymssql</a>
+                <a href="javascript:void(0)" class="js-tag color1">域名重定向</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pymssql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,14 +553,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">域名重定向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">learning</a>
               </li>
              
@@ -566,11 +561,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OCR</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Python3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">spilt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,6 +586,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             
             <div class="clearfix"></div>

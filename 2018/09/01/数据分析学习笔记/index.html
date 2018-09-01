@@ -6,23 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hjw-cn.github.io">
-  <title>DDCTF 掀桌子题Write up | 韩佳卫知道的就这么点</title>
+  <title>数据分析学习笔记 | 韩佳卫知道的就这么点</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作为一个CTF新手，第一次写write up还是有些惶恐的">
-<meta name="keywords" content="CTF,write up">
+  <meta name="description" content="一.介绍集中趋势：集中趋势的表现有均值，中位数，众数，分位数（常用四分位数）等 关于四分位数计算方法：n表示数据的个数">
+<meta name="keywords" content="Python,数据分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DDCTF 掀桌子题Write up">
-<meta property="og:url" content="https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/index.html">
+<meta property="og:title" content="数据分析学习笔记">
+<meta property="og:url" content="https://hjw-cn.github.io/2018/09/01/数据分析学习笔记/index.html">
 <meta property="og:site_name" content="韩佳卫知道的就这么点">
-<meta property="og:description" content="作为一个CTF新手，第一次写write up还是有些惶恐的">
+<meta property="og:description" content="一.介绍集中趋势：集中趋势的表现有均值，中位数，众数，分位数（常用四分位数）等 关于四分位数计算方法：n表示数据的个数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://hjw-cn.github.io/img/掀桌子.png">
-<meta property="og:image" content="https://hjw-cn.github.io/img/psb.jpg">
-<meta property="og:updated_time" content="2018-08-15T03:39:58.274Z">
+<meta property="og:image" content="https://hjw-cn.github.io/img/lzqs.png">
+<meta property="og:image" content="https://hjw-cn.github.io/img/ptfd.png">
+<meta property="og:image" content="https://hjw-cn.github.io/img/ztfb.png">
+<meta property="og:updated_time" content="2018-09-01T00:16:17.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DDCTF 掀桌子题Write up">
-<meta name="twitter:description" content="作为一个CTF新手，第一次写write up还是有些惶恐的">
-<meta name="twitter:image" content="https://hjw-cn.github.io/img/掀桌子.png">
+<meta name="twitter:title" content="数据分析学习笔记">
+<meta name="twitter:description" content="一.介绍集中趋势：集中趋势的表现有均值，中位数，众数，分位数（常用四分位数）等 关于四分位数计算方法：n表示数据的个数">
+<meta name="twitter:image" content="https://hjw-cn.github.io/img/lzqs.png">
   
     <link rel="alternative" href="/atom.xml" title="韩佳卫知道的就这么点" type="application/atom+xml">
   
@@ -166,76 +167,44 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-DDCTF-掀桌子题Write-up" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据分析学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      DDCTF 掀桌子题Write up
+      数据分析学习笔记
     </h1>
   
 
         
-        <a href="/2018/05/02/DDCTF-掀桌子题Write-up/" class="archive-article-date">
-  	<time datetime="2018-05-02T10:49:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-02</time>
+        <a href="/2018/09/01/数据分析学习笔记/" class="archive-article-date">
+  	<time datetime="2018-08-31T23:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>作为一个CTF新手，第一次写write up还是有些惶恐的</p>
-<p><img src="/img/掀桌子.png" alt=""><br><a id="more"></a><br>这个题的题目是一个颜文字，然而…解决整个题的过程跟颜文字一点关系都没有。</p>
-<font color="#3d8db9" align="center" size="5"><p>刺不刺激，惊不惊喜</p><p></p></font>
-
-<p>这个题的整体思路就是进制转换，先将16进制转换为10进制，再对128求余，剩下的结果转换为字符。</p>
-<p>先仔细观察这个字符串的特点“d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9e1e6b<br>3e3b9e4b3b7b7e2b6b1e4b2b6b9e2b1b1b3b3b7e6b3b3b0e3b9b3b5e6fd”<br>会发现字母最大就是f 是16进制没跑了</p>
-<p>16进制一般是两个字符组成一个字节，拆解，转换成十进制之后会发现超出ASCII码范围，ASCII有0-127，<br>所以脑洞大开 对128取余，之后再转换成字符。Bingo！！</p>
-<p>下面上代码：</p>
-<pre><code>#coding:utf-8 
-import re
-import urllib
-
-list1=[]
-list2=[]
-
-
-s = &quot;d4e8e1f4a0f7e1f3a0e6e1f3f4a1a0d4e8e5a0e6ece1e7a0e9f3baa0c4c4c3d4c6fbb9b2b2e1e2b9b9b7b4e1b4
-b7e3e4b3b2b2e3e6b4b3e2b5b0b6b1b0e6e1e5e1b5fd&quot;
-
-print len(s)
-result=re.sub(r&quot;(?&lt;=\w)(?=(?:\w\w)+$)&quot;,&quot; &quot;, s)
-print result
-urlencode_s=&quot;%&quot;+result.replace(&quot; &quot;,&quot;%&quot;)
-print urlencode_s
-hex_s = &quot;0x&quot;+result.replace(&quot; &quot;,&quot;0x&quot;)
-print hex_s
-print hex_s[-4:8]
-list_hex = []
-
-for i in range(len(hex_s)):
-    if((i+1)%4==0):
-        print hex_s[(i-3):(i+1)]
-        list1.append(hex_s[(i-3):(i+1)])
-        print i
-    else:
-        print i
-        continue
-print list1
-
-for i in list1:
-    list2.append(int(i,16))
-print list2
-list3=[]
-for i in range(len(list2)):
-    list3.append(chr(int(list2[i])-128))
-s = &quot;&quot;.join(list3)
-print s
-</code></pre><p>PS：第一次参加CTF比赛，只做出来一道题。。。作为353名中的一份子我可能是最菜的 </p>
-<p>表情包奉上<br><img src="/img/psb.jpg" alt=""></p>
-
+        <h2 id="一-介绍"><a href="#一-介绍" class="headerlink" title="一.介绍"></a>一.介绍</h2><h5 id="集中趋势："><a href="#集中趋势：" class="headerlink" title="集中趋势："></a>集中趋势：</h5><p>集中趋势的表现有均值，中位数，众数，分位数（常用四分位数）等</p>
+<p><strong>关于四分位数计算方法：</strong>n表示数据的<strong>个数</strong> </p>
+<a id="more"></a>
+<p>$$<br>Q1的位置 = （n+1）* 0.25<br>$$</p>
+<p>$$<br>Q2的位置 = （n+1）* 0.5<br>$$</p>
+<p>$$<br>Q3的位置 = （n+1）* 0.75<br>$$</p>
+<h5 id="离中趋势："><a href="#离中趋势：" class="headerlink" title="离中趋势："></a>离中趋势：</h5><p>离中趋势的表现有标准差，方差等</p>
+<p><img src="\img\lzqs.png" alt=""></p>
+<h5 id="数据分布："><a href="#数据分布：" class="headerlink" title="数据分布："></a>数据分布：</h5><p>偏态系数与峰度系数：</p>
+<p><img src="\img\ptfd.png" alt=""></p>
+<p><strong>S为正值：正偏 均值大  为负则反之</strong></p>
+<p><strong>数据分布集中强度K越大顶越尖越小越平缓，正态分布的K=3</strong></p>
+<p>正态分布与三大分布：</p>
+<p><img src="\img\ztfb.png" alt=""></p>
+<p><strong>卡方分布：</strong>几个标准正态分布<strong>（均值为0方差为1）</strong>的平方和满足的分布  —-  待补充</p>
+<p><strong>T分布：</strong>正态分布的一个随机变量除以一个服从卡方分布的变量—-<strong>用来根据小样本来估计呈正态分布且方差未知的总体的均值。</strong></p>
+<p><strong>F分布：</strong>构成两个服从卡方分布的随机变量的比值构成的（即就是两个卡方分布的商）—-  待补充</p>
+<h2 id="二-代码实现"><a href="#二-代码实现" class="headerlink" title="二.代码实现"></a>二.代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*- </span></span><br><span class="line"><span class="comment"># @Author: Han</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> ss</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">r"\Data\HR.csv"</span>)</span><br><span class="line"><span class="comment"># DataFrame   和  Series  两种数据结构</span></span><br><span class="line"></span><br><span class="line">df.mean()         <span class="comment"># 求均值</span></span><br><span class="line">df.median()       <span class="comment"># 中位数</span></span><br><span class="line">df.quantile(q=<span class="number">0.25</span>)    <span class="comment"># 四分位数根据参数q</span></span><br><span class="line">df.mode()         <span class="comment"># 众数</span></span><br><span class="line">df.std()          <span class="comment"># 离标准差</span></span><br><span class="line">df.var()          <span class="comment">#方差</span></span><br><span class="line">df.sum()          <span class="comment">#求和</span></span><br><span class="line">df.skew()         <span class="comment">#偏态系数</span></span><br><span class="line">df.kurt()         <span class="comment">#峰态系数</span></span><br><span class="line">ss.norm()         <span class="comment"># 正态分布</span></span><br><span class="line">ss.norm.stats(moments=<span class="string">"mvsk"</span>)     <span class="comment">#</span></span><br><span class="line">ss.norm.pdf(<span class="number">0.0</span>)           <span class="comment">#指定横坐标返回竖坐标</span></span><br><span class="line">ss.norm.ppf(<span class="number">0.9</span>)           <span class="comment">#累计值 积分为0.9时 从-无穷大到返回值</span></span><br><span class="line">ss.norm.cdf(<span class="number">2</span>)             <span class="comment">#从-无穷积到2的累计概率</span></span><br><span class="line">ss.norm.cdf(<span class="number">2</span>)-ss.norm.cdf(<span class="number">-2</span>)</span><br><span class="line">ss.norm.rvs(size=<span class="number">10</span>)   <span class="comment">#得到10个符合正态分布的数字</span></span><br><span class="line">ss.chi2()             <span class="comment">#卡方分布</span></span><br><span class="line">ss.t()                <span class="comment"># t分布</span></span><br><span class="line">ss.f()                <span class="comment"># f分布</span></span><br><span class="line"></span><br><span class="line">df.sample(n=<span class="number">10</span>)    <span class="comment"># 按个数抽样</span></span><br><span class="line">df.sample(frac=<span class="number">0.001</span>)   <span class="comment">#按比例抽样</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -279,11 +248,11 @@ print s
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CTF</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">write up</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		
 		</ul>
@@ -339,7 +308,7 @@ print s
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hjw-cn.github.io/2018/05/02/DDCTF-掀桌子题Write-up/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hjw-cn.github.io/2018/09/01/数据分析学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +322,9 @@ print s
   
 <nav id="article-nav">
   
-    <a href="/2018/05/05/python3安装pymssql库时遇到的问题及解决方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python3安装pymssql库时遇到的问题及解决方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/04/29/域名重定向中的遇到的一些问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">域名重定向中的遇到的一些问题</div>
+    <a href="/2018/08/28/三天打渔，两天晒网/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">三天打渔，两天晒网</div>
       <i class="icon-circle-right"></i>
     </a>
   
