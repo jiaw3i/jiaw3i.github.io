@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jiawei的博客</title>
+  <icon>https://tnbai.com/icon.png</icon>
+  
+  <link href="https://tnbai.com/atom.xml" rel="self"/>
+  
+  <link href="https://tnbai.com/"/>
+  <updated>2024-04-03T09:20:58.139Z</updated>
+  <id>https://tnbai.com/</id>
+  
+  <author>
+    <name>Jiawei</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>汉中清明节攻略</title>
+    <link href="https://tnbai.com/posts/4088013166.html"/>
+    <id>https://tnbai.com/posts/4088013166.html</id>
+    <published>2024-04-02T15:08:29.000Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;清明节三天假期说长不长，说短也短。&lt;br&gt;总的来说就是不长，但也足够去周边游玩一趟。  &lt;/p&gt;
+&lt;p&gt;清明时间雨纷纷，出行前查好天气，预计会有小雨，既然有雨，那就要准备好避雨物品：&lt;code&gt;冲锋衣&lt;/code&gt;，&lt;code&gt;雨伞&lt;/code&gt;等&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    
+    <category term="旅游" scheme="https://tnbai.com/tags/%E6%97%85%E6%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python中设置的环境变量在当前shell环境生效</title>
+    <link href="https://tnbai.com/posts/1632314250.html"/>
+    <id>https://tnbai.com/posts/1632314250.html</id>
+    <published>2024-04-01T07:08:41.402Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;需求：&lt;/strong&gt; 我需要使用python写一个自动化脚本，即解析maven项目，根据项目的语言版本设置JAVA_HOME环境变量。&lt;br&gt;&lt;strong&gt;例子：&lt;/strong&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Python" scheme="https://tnbai.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL表连接的原理</title>
+    <link href="https://tnbai.com/posts/1935287288.html"/>
+    <id>https://tnbai.com/posts/1935287288.html</id>
+    <published>2023-08-09T07:29:41.402Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+    <summary type="html">1. 回顾表连接 1.1. 驱动表和被驱动表 先来看看驱动表和被驱动表的概念 驱动表就是表在连接MySQL底层先查询的那张表。​被驱动表根据驱动表找到的结果集“挨个”去被驱动表中匹配相关记录。  通常来说驱动表中有几个记录组成的结果集，就得查找被驱动表几次。 inner join不分驱动表和被驱动表...</summary>
+    
+    
+    
+    
+    <category term="后端" scheme="https://tnbai.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="MySQL" scheme="https://tnbai.com/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JDK8-17每个版本的新特性一览</title>
+    <link href="https://tnbai.com/posts/1381549221.html"/>
+    <id>https://tnbai.com/posts/1381549221.html</id>
+    <published>2023-08-03T01:32:09.852Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+    <summary type="html">JDK 8（发布于2014年）：  Lambda 表达式和函数式接口 接口的默认方法和静态方法 新的日期和时间 API 重复注解  JDK 9（发布于2017年）：  模块化系统（Jigsaw） 改进的 JShell REPL 私有接口方法 G1 垃圾收集器的改进  JDK 10（发布于2018年）：  局部变量类型推断（var） 应用级别线程暂停（Thread.onSpinWait() 方法） ...</summary>
+    
+    
+    
+    
+    <category term="后端" scheme="https://tnbai.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="Java" scheme="https://tnbai.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微软的TypeChat是什么？能做什么？</title>
+    <link href="https://tnbai.com/posts/1485562714.html"/>
+    <id>https://tnbai.com/posts/1485562714.html</id>
+    <published>2023-07-25T01:32:09.852Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+    <summary type="html">背景 微软前些日子开源了一个叫TypeChat的库，地址是microsoft/TypeChat: TypeChat is a library that makes it easy to build natural language interfaces using types. (github.co...</summary>
+    
+    
+    
+    
+    <category term="AI" scheme="https://tnbai.com/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dockerfile多阶段构建部署react项目</title>
+    <link href="https://tnbai.com/posts/4253161059.html"/>
+    <id>https://tnbai.com/posts/4253161059.html</id>
+    <published>2023-07-21T02:16:14.854Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;&lt;em&gt;Docker&lt;/em&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="前端" scheme="https://tnbai.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Docker" scheme="https://tnbai.com/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>应用推荐 | 浏览器插件之沉浸式翻译</title>
+    <link href="https://tnbai.com/posts/2266640466.html"/>
+    <id>https://tnbai.com/posts/2266640466.html</id>
+    <published>2023-07-17T03:37:28.184Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;推荐理由&quot;&gt;&lt;a href=&quot;#推荐理由&quot; class=&quot;headerlink&quot; title=&quot;推荐理由&quot;&gt;&lt;/a&gt;推荐理由&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;支持OpenAI翻译服务&lt;/li&gt;
+&lt;li&gt;输入框增强服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    
+    <category term="应用推荐" scheme="https://tnbai.com/tags/%E5%BA%94%E7%94%A8%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用gulp压缩hexo博客的静态资源(css,html,js,font)</title>
+    <link href="https://tnbai.com/posts/1896625805.html"/>
+    <id>https://tnbai.com/posts/1896625805.html</id>
+    <published>2023-07-14T08:02:28.465Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;所有过程参考这篇文章，没踩坑，完全可用。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://akilar.top/posts/49b73b87/&quot;&gt;使用gulp压缩博客静态资源 |</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>谈谈为什么要写博客</title>
+    <link href="https://tnbai.com/posts/3814660339.html"/>
+    <id>https://tnbai.com/posts/3814660339.html</id>
+    <published>2023-06-14T03:20:47.218Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;其实我在大学期间就用hexo+github</summary>
+        
+      
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://tnbai.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给vmware虚拟机/dev/sda分区扩容</title>
+    <link href="https://tnbai.com/posts/3317844375.html"/>
+    <id>https://tnbai.com/posts/3317844375.html</id>
+    <published>2023-05-31T08:34:04.892Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h1&gt;&lt;p&gt;docker服务、mysql服务全部挂掉，用&lt;code&gt;systemctl</summary>
+        
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://tnbai.com/tags/linux/"/>
+    
+    <category term="磁盘扩容" scheme="https://tnbai.com/tags/%E7%A3%81%E7%9B%98%E6%89%A9%E5%AE%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java中InputStream read()一次不当使用导致的bug</title>
+    <link href="https://tnbai.com/posts/4129463891.html"/>
+    <id>https://tnbai.com/posts/4129463891.html</id>
+    <published>2023-05-24T13:19:00.420Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+    <summary type="html">背景 今天有个需求是需要使用到Apache的poi包去读取word文件。也就是doc和docx文件。我在引入poi之后，自己封装了一个DocExtractor类，里面组合了XWPFDocument用来读取解析docx文件。 我按照正常流程封装，写测试用例。结果测试报错如下： org.apache.poi.openxml4j.exceptions.NotOfficeXmlFileException:...</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一次win10系统运行项目崩溃问题的解决</title>
+    <link href="https://tnbai.com/posts/2872886699.html"/>
+    <id>https://tnbai.com/posts/2872886699.html</id>
+    <published>2023-05-18T13:37:47.970Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天新创建一个springboot项目，使用某脚手架创建的，项目搭建好之后报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="后端" scheme="https://tnbai.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常见tritonserver启动命令行参数</title>
+    <link href="https://tnbai.com/posts/Owen.html"/>
+    <id>https://tnbai.com/posts/Owen.html</id>
+    <published>2023-05-04T08:56:04.000Z</published>
+    <updated>2023-05-04T08:58:20.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;log-相关&quot;&gt;&lt;a href=&quot;#log-相关&quot; class=&quot;headerlink&quot; title=&quot;log 相关&quot;&gt;&lt;/a&gt;log 相关&lt;/h2&gt;&lt;p&gt;triton 提供四种等级的 log：info warning error</summary>
+        
+      
+    
+    
+    
+    
+    <category term="triton" scheme="https://tnbai.com/tags/triton/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dubbo服务调用的扩展点简述</title>
+    <link href="https://tnbai.com/posts/2316727762.html"/>
+    <id>https://tnbai.com/posts/2316727762.html</id>
+    <published>2023-04-18T11:58:49.000Z</published>
+    <updated>2023-04-18T11:58:49.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Dubbo是一个高性能的分布式服务框架，它支持RPC协议和多种负载均衡算法。在实际应用中，Dubbo的服务调用过程中，经常需要进行各种扩展操作，以满足特定的需求。&lt;/p&gt;
+&lt;p&gt;Dubbo中内置了多个服务调用扩展点，如负载均衡扩展点、集群容错扩展点、协议扩展点等。通过这些扩</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>再谈谈redis如何保证高可用</title>
+    <link href="https://tnbai.com/posts/3153732768.html"/>
+    <id>https://tnbai.com/posts/3153732768.html</id>
+    <published>2023-04-10T13:50:54.000Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Redis是基于&lt;code&gt;哨兵(Sentiel)&lt;/code&gt;实现高可用&lt;/p&gt;
+&lt;h2 id=&quot;一-哨兵的介绍&quot;&gt;&lt;a href=&quot;#一-哨兵的介绍&quot; class=&quot;headerlink&quot; title=&quot;一. 哨兵的介绍&quot;&gt;&lt;/a&gt;一.</summary>
+        
+      
+    
+    
+    
+    
+    <category term="后端" scheme="https://tnbai.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="redis" scheme="https://tnbai.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用@microsoft/fetch-event-source未关闭连接导致的问题</title>
+    <link href="https://tnbai.com/posts/2113118892.html"/>
+    <id>https://tnbai.com/posts/2113118892.html</id>
+    <published>2023-04-05T14:45:42.000Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天清明节，放假一天，碰巧是个下雨天，本来打算早上睡个大懒觉，可是毕竟周三本来应该是工作日，早上8点，生物钟准时叫醒我。&lt;/p&gt;
+&lt;p&gt;就想着今天继续把网站上接入的聊天机器人完善一下，前几天用event-source小小改造一番，配置SpringSse可以流式获取数据，今天</summary>
+        
+      
+    
+    
+    
+    
+    <category term="前端" scheme="https://tnbai.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>聊聊今天都干了什么</title>
+    <link href="https://tnbai.com/posts/2274212304.html"/>
+    <id>https://tnbai.com/posts/2274212304.html</id>
+    <published>2023-03-29T15:08:29.000Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;2023年3月29日，天气晴朗，温度适宜，穿上卫衣+外套刚刚好。&lt;/p&gt;
+&lt;p&gt;我个人的主站，已经稍微能看了，但是很多样式上的bug还是很多，而且项目数据还是mock数据。&lt;/p&gt;
+&lt;p&gt;现在是23:12分，今天对我的主站加了些什么东西呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="杂谈" scheme="https://tnbai.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录经常使用的hexo command</title>
+    <link href="https://tnbai.com/posts/1411323245.html"/>
+    <id>https://tnbai.com/posts/1411323245.html</id>
+    <published>2023-03-26T05:26:18.000Z</published>
+    <updated>2024-04-03T09:20:58.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;以下是我在发表博客的时候用到的hexo命令,在此记录一下，会不断完善&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://tnbai.com/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>

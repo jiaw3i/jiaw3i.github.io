@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>汉中清明节攻略</title>
+      <link href="/posts/4088013166.html"/>
+      <url>/posts/4088013166.html</url>
+      
+        <content type="html"><![CDATA[<p>清明节三天假期说长不长，说短也短。<br>总的来说就是不长，但也足够去周边游玩一趟。  </p><p>清明时间雨纷纷，出行前查好天气，预计会有小雨，既然有雨，那就要准备好避雨物品：<code>冲锋衣</code>，<code>雨伞</code>等</p><h1 id="龙头山🐲"><a href="#龙头山🐲" class="headerlink" title="龙头山🐲"></a>龙头山🐲</h1><p><img src="/posts/4088013166/image.png" alt="image"></p><h2 id="开放时间"><a href="#开放时间" class="headerlink" title="开放时间"></a>开放时间</h2><p>8.00-17.50<br>建议早上9:30前到达景区，预留足够的游览时间<br>游玩时间3-4小时<br><strong>计划游玩时间：4月4日8:30——12:00</strong></p><h2 id="票价"><a href="#票价" class="headerlink" title="票价"></a>票价</h2><p>清明节专享票：成人票+往返索道 155RMB</p><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>自驾导航至 <code>汉中龙头山国际旅游度假区</code></p><h1 id="诸葛古镇"><a href="#诸葛古镇" class="headerlink" title="诸葛古镇"></a>诸葛古镇</h1><p><img src="/posts/4088013166/zhugezhuzhen.png" alt="image"></p><h2 id="开放时间-1"><a href="#开放时间-1" class="headerlink" title="开放时间"></a>开放时间</h2><p>全天开放 </p><p><strong>计划游玩时间：4月4日13:30——15:00</strong></p><h2 id="票价-1"><a href="#票价-1" class="headerlink" title="票价"></a>票价</h2><p>成人票 50RMB</p><h1 id="🦁狮子沟牧场"><a href="#🦁狮子沟牧场" class="headerlink" title="🦁狮子沟牧场"></a>🦁狮子沟牧场</h1><p><img src="/posts/4088013166/shizigou.png" alt="image"></p><p>导航地址：<code>汉中市留坝县营盘镇狮子沟牧场</code>  </p><p>全天开放+免门票</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 旅游 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python中设置的环境变量在当前shell环境生效</title>
+      <link href="/posts/1632314250.html"/>
+      <url>/posts/1632314250.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>需求：</strong> 我需要使用python写一个自动化脚本，即解析maven项目，根据项目的语言版本设置JAVA_HOME环境变量。<br><strong>例子：</strong> 当前maven项目需要JDK17编译，我需要将JAVA_HOME设置为&#x2F;usr&#x2F;lib&#x2F;jdk17</p><p>然而当我解析完项目所需JDK版本后，设置JAVA_HOME，并且需要及时生效成了一个问题</p><p><strong>我理想的自动化步骤：</strong>  </p><ol><li>执行 <code>python setenv.py &#123;project_path&#125;</code>自动设置JAVA_HOME为该项目适配的JDK环境</li><li>执行<code>mvn test</code>可以使用步骤1设置好的JAVA_HOME</li></ol><p>因为Python中通过<code>os.environment</code>设置的环境变量是属于当前python进程的环境变量，不会在父shell中生效。</p><p><strong>我想到过的无效解决方法：</strong></p><ol><li>使用subprocess.run执行export JAVA_HOME，此方法依旧是由子进程执行，不会生效</li><li>追加export JAVA_HOME到~&#x2F;.bashrc，此方法会在当前用户下次登录shell生效，不会立即生效</li></ol><p><strong>有效的解决方法：</strong><br>要解决这个问题，就是需要在父shell中设置环境变量，不能开启子进程，也不能在子shell中执行。</p><p>我这边后面写了个shell脚本<code>setenv.sh</code>，先在shell脚本中执行python脚本，将解析出的JAVA_HOME输出到.env文件，格式为<code>JAVA_HOME=/usr/lib/JDK17</code>，然后在shell脚本中去读取这个文件，然后export JAVA_HOME。</p><p><strong>最后的自动化步骤：</strong>  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">. setenv.sh &#123;project_path&#125;</span></span><br></pre></td></tr></table></figure><p>注意前面的<code>.</code> </p><p>不能直接运行setenv.sh，这样还是设置在子shell中，不会在父shell生效。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL表连接的原理</title>
+      <link href="/posts/1935287288.html"/>
+      <url>/posts/1935287288.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-回顾表连接"><a href="#1-回顾表连接" class="headerlink" title="1. 回顾表连接"></a>1. 回顾表连接</h1><h2 id="1-1-驱动表和被驱动表"><a href="#1-1-驱动表和被驱动表" class="headerlink" title="1.1. 驱动表和被驱动表"></a>1.1. 驱动表和被驱动表</h2><p>先来看看驱动表和被驱动表的概念</p><p>驱动表就是表在连接MySQL底层先查询的那张表。被驱动表根据驱动表找到的结果集“挨个”去被驱动表中匹配相关记录。</p><blockquote><p>通常来说驱动表中有几个记录组成的结果集，就得查找被驱动表几次。</p><p>inner join不分驱动表和被驱动表，left join 左边的表是驱动表，right join 右边的表是驱动表。</p></blockquote><h2 id="1-2-连接"><a href="#1-2-连接" class="headerlink" title="1.2. 连接"></a>1.2. 连接</h2><p>MySQL中连接分为三种：内连接、左(外)连接、右(外)连接。</p><p>假设现在有两张表t1和t2，两张表都有两个字段id,name。</p><p><strong>左(外)连接：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span> 左连接 左边的表为驱动表，右边的表为被驱动表。</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 驱动表的数据会全部作为结果集返回，如果驱动表中有数据 被驱动表没数据那么被驱动表中字段值为<span class="keyword">null</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1 <span class="keyword">left</span> <span class="keyword">join</span> t2 <span class="keyword">on</span> t1.id<span class="operator">=</span>t2.id</span><br></pre></td></tr></table></figure><p><strong>右(外)连接：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span> 右连接 左边的表为被驱动表，右边的表为驱动表。</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 驱动表的数据会全部作为结果集返回，如果驱动表中有数据 被驱动表没数据那么被驱动表中字段值为<span class="keyword">null</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1 <span class="keyword">right</span> <span class="keyword">join</span> t2 <span class="keyword">on</span> t1.id<span class="operator">=</span>t2.id</span><br></pre></td></tr></table></figure><p><strong>内连接</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span> 不加条件,以下三条语句是等价的。</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1,t2;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1 <span class="keyword">inner</span> <span class="keyword">join</span> t2;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1 <span class="keyword">join</span> t2;</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 内连接条件查询，<span class="keyword">on</span>和<span class="keyword">where</span>是等价的：因为内连接不分驱动表和被驱动表，所以在内连接中mysql会把<span class="keyword">on</span>看作<span class="keyword">where</span>。</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1 <span class="keyword">inner</span> <span class="keyword">join</span> t2 <span class="keyword">on</span> t1.id<span class="operator">=</span><span class="number">3</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t1 <span class="keyword">inner</span> <span class="keyword">join</span> t2 <span class="keyword">where</span> t1.m1<span class="operator">=</span><span class="number">3</span>;</span><br></pre></td></tr></table></figure><p>回顾完三种连接的写法和一些基本概念之后，下面分析一下连接的原理。</p><h1 id="2-原理分析"><a href="#2-原理分析" class="headerlink" title="2. 原理分析"></a>2. 原理分析</h1><h2 id="2-1-嵌套循环查询"><a href="#2-1-嵌套循环查询" class="headerlink" title="2.1. 嵌套循环查询"></a>2.1. 嵌套循环查询</h2><p>一般查询遵循以下步骤：</p><ol><li>查询一次驱动表，查询符合条件的驱动表数据</li><li>根据step 1中查出来的数据再去查被驱动表，查询次数&#x3D;驱动表数据条数</li><li>如果是多表连接，那就step 2查询的数据作为新的驱动表数据再去查后面的表</li></ol><p>整个过程就是一个嵌套的循环查询的过程。</p><p>这个过程的优化点就是被驱动表的查询，可以给被驱动表的条件字段加索引来优化查询速度。</p><h2 id="2-2-基于块的嵌套循环查询"><a href="#2-2-基于块的嵌套循环查询" class="headerlink" title="2.2. 基于块的嵌套循环查询"></a>2.2. 基于块的嵌套循环查询</h2><h3 id="join-buffer"><a href="#join-buffer" class="headerlink" title="join buffer"></a>join buffer</h3><p>在嵌套循环连接查询的时候，被驱动表会被查询多次，如果数据特别多，内存中可能会放不下全部的数据，就会出现扫描后边的数据内存不够就会把前面的数据释放掉，那这样再次需要扫描前面的数据时又要从磁盘重新加载，这个过程会循环多次，那这个I&#x2F;O消耗就会比较大。</p><p>所以MySQL中就有join buffer这么一个概念，join buffer是连接查询前会开辟的一个固定大小的内存区域，大小由<code>join_buffer_size</code>配置。这个区域会装载驱动表的查询结果，然后扫描被驱动表的记录，每条被驱动表的记录一次性和<code>join buffer</code>中全部的记录进行条件匹配。这样被驱动表中的一条记录理论上来说只需要加载一次就会跟驱动表的数据匹配完成，不需要加载多次。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JDK8-17每个版本的新特性一览</title>
+      <link href="/posts/1381549221.html"/>
+      <url>/posts/1381549221.html</url>
+      
+        <content type="html"><![CDATA[<p>JDK 8（发布于2014年）：</p><ol><li>Lambda 表达式和函数式接口</li><li>接口的默认方法和静态方法</li><li>新的日期和时间 API</li><li>重复注解</li></ol><p>JDK 9（发布于2017年）：</p><ol><li>模块化系统（Jigsaw）</li><li>改进的 JShell REPL</li><li>私有接口方法</li><li>G1 垃圾收集器的改进</li></ol><p>JDK 10（发布于2018年）：</p><ol><li>局部变量类型推断（var）</li><li>应用级别线程暂停（Thread.onSpinWait() 方法）</li><li>基于时间的版本控制</li><li>并行 Full GC</li></ol><p>JDK 11（发布于2018年）：</p><ol><li>HTTP Client API</li><li>单元测试框架改进</li><li>本地变量语法扩展（var 支持在 lambda 参数中）</li><li>动态类文件常量</li></ol><p>JDK 12（发布于2019年）：</p><ol><li>Switch 表达式</li><li>线程补偿器</li><li>延长的 AArch64 intrinsics</li></ol><p>JDK 13（发布于2019年）：</p><ol><li>文本块</li><li>动态 CDS 归档</li></ol><p>JDK 14（发布于2020年）：</p><ol><li>移除了 Concurrent Mark Sweep（CMS）垃圾收集器</li><li>新增了预览功能 Switch 表达式</li><li>添加了 Records（数据类）</li></ol><p>JDK 15（发布于2020年）：</p><ol><li>新增了预览功能 Sealed 类和接口</li><li>添加了 Records（数据类）的进一步改进</li><li>添加了 ZGC（低延迟垃圾收集器）的并发模式</li></ol><p>JDK 16（发布于2021年）：</p><ol><li>垃圾收集器的改进</li><li>JEP 338：Unix 域套接字通道</li><li>兼容性警告的改进</li></ol><p>JDK 17（发布于2021年）：</p><ol><li>JEP 338：基于配置文件的启动</li><li>JEP 356：垃圾收集器接口</li><li>JEP 395：记录模式的重构</li><li>JEP 394：模式结束时处理垃圾回收</li><li>JEP 376：ZGC 并发垃圾回收器的改进</li></ol><p>以上仅列举了每个版本的主要新特性，还有其他一些改进和修复不一一列举。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微软的TypeChat是什么？能做什么？</title>
+      <link href="/posts/1485562714.html"/>
+      <url>/posts/1485562714.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>微软前些日子开源了一个叫<code>TypeChat</code>的库，地址是<a href="https://github.com/microsoft/TypeChat">microsoft&#x2F;TypeChat: TypeChat is a library that makes it easy to build natural language interfaces using types. (github.com)</a></p><p>以下翻译自官方介绍<a href="https://microsoft.github.io/TypeChat/blog/introducing-typechat/">Introducing TypeChat - TypeChat (microsoft.github.io)</a>：</p><blockquote><p>当前的LLMs默认使用会话式自然语言，就像人类使用的英语一样进行交流。解析自然语言是一项非常困难的任务，无论你如何用规则来指导，比如“以项目符号列表的形式回答”。自然语言可能有结构，但对于典型的软件来说，从原始文本中重建它是困难的。</p><p>令人惊讶的是，我们可以要求LLMs以JSON的形式进行回应，而它们通常会给出合理的回答！</p></blockquote><h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><p>那这个库有什么作用，我们该如何使用？</p><p>以前我们使用openai这类大模型一般都是倾向于去获得一个答案，帮助我们解决一些问题。现在有了这个库，我们可以以TypeChat作为桥梁，用TypeChat解析自然语言为结构化的数据，然后输入到我们的API或者是用户界面使用。</p><p>举个例子：</p><p>现在我们有个TODO清单的程序，以往我们创建一个item需要填写待办事件，相关日期等信息。这个api接口长这样：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST /todo/create</span><br><span class="line"></span><br><span class="line">request body:</span><br><span class="line">&#123;</span><br><span class="line">    &quot;content&quot;: &quot;明天下午6:00前完成组件发布&quot;,</span><br><span class="line">    &quot;datetime&quot;: &quot;2023-07-27 18:00:00&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>我们可能需要做的就是填写事项，然后选择提醒时间，然后前端组织好数据请求接口完成操作。</p><blockquote><p>那这样很不方便啊，更好的方式当然是我用自然语言描述出来，然后可以自动解析出这个接口的schema内容。</p></blockquote><p>那这就是TypeChat做的事情了，比如我定义一个Type：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> <span class="title class_">TodoResponse</span> &#123;</span><br><span class="line">    <span class="attr">content</span>: <span class="built_in">string</span>;</span><br><span class="line">    <span class="attr">datetime</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>TypeChat可以根据输入的自然语言解析出符合这个TodoResponse结构的结果。然后我们将这个结果再作用API的输入。这样我们就可以使用自然语言去创建待办。</p><h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><blockquote><p>我写了一个Demo去展示其作用，不过你得有自己的openai key。OpenAI或者Azure OpenAI都可以。</p><p><a href="https://nl2type.colazy.com/">https://nl2type.colazy.com</a></p></blockquote><p><img src="https://img.hanjiawei.com/owen/2023/08/03/64cb7848814f1.png" alt="https://img.hanjiawei.com/owen/2023/08/03/64cb7848814f1.png"></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>TypeChat有什么用？</p><blockquote><p>他可以将自然语言和API通过任意的大模型连接起来，以便与我们的应用程序配合使用</p></blockquote><p>TypeChat如何使用?</p><blockquote><p>上面我举了一个简单的Todo List的例子，只是草草描述了一下使用逻辑。</p><p>具体的使用方式可以看官方的examples：<a href="https://github.com/microsoft/TypeChat/tree/main/examples">TypeChat&#x2F;examples at main · microsoft&#x2F;TypeChat (github.com)</a></p></blockquote><p>感谢阅读😉😉</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>dockerfile多阶段构建部署react项目</title>
+      <link href="/posts/4253161059.html"/>
+      <url>/posts/4253161059.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><em>Docker</em> 17.05或更高版本支持多阶段构建镜像了，之前我都是在centos的基础镜像里手动安装node和nginx，然后再打包部署。</p><p>这次就用多阶段构建镜像重构一下Dockerfile，大体思路就是先FROM node用来打包，然后再FROM nginx把打包好的静态文件拷贝打nginx镜像中。</p><p>以下是最终的Dockerfile，经过实践是完全可行的，详细的步骤都写在注释中了。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">FROM node:lts as builder</span><br><span class="line">LABEL authors=&quot;hanjiawei&quot;</span><br><span class="line"></span><br><span class="line"># 设置时区</span><br><span class="line">ENV TZ=Asia/Shanghai</span><br><span class="line">RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</span><br><span class="line"># 在容器中创建好项目目录</span><br><span class="line">RUN mkdir app</span><br><span class="line"># 设置好工作目录</span><br><span class="line">WORKDIR /app</span><br><span class="line"># 拷贝package文件到镜像里的/app目录下</span><br><span class="line">COPY package.json .</span><br><span class="line"># 安装依赖</span><br><span class="line">RUN npm install --registry=https://registry.npm.taobao.org</span><br><span class="line"># 拷贝项目文件 这里要注意.gitignore里的内容</span><br><span class="line">COPY . .</span><br><span class="line"># 打包项目</span><br><span class="line">RUN npm run build</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">FROM nginx:1.25.1</span><br><span class="line"># 从上面的builder镜像里拷贝构建好的项目文件到当前镜像中</span><br><span class="line">COPY --from=builder /app/dist /usr/share/nginx/html</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>应用推荐 | 浏览器插件之沉浸式翻译</title>
+      <link href="/posts/2266640466.html"/>
+      <url>/posts/2266640466.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="推荐理由"><a href="#推荐理由" class="headerlink" title="推荐理由"></a>推荐理由</h1><ol><li>支持OpenAI翻译服务</li><li>输入框增强服务</li></ol><h1 id="主要功能介绍"><a href="#主要功能介绍" class="headerlink" title="主要功能介绍"></a>主要功能介绍</h1><h2 id="OpenAI翻译服务"><a href="#OpenAI翻译服务" class="headerlink" title="OpenAI翻译服务"></a>OpenAI翻译服务</h2><p>前段时间偶然刷到这个翻译插件-沉浸式翻译，因为我对网页双语阅读的需求，所以此前我一直使用的是彩云翻译这个插件，开了会员，使用体验倒也好。</p><p>沉浸式翻译可以自定义翻译源，这里强烈推荐使用OpenAI翻译服务。</p><p><img src="https://img.hanjiawei.com/owen/2023/07/17/64b4b873b0b32.png" alt="https://img.hanjiawei.com/owen/2023/07/17/64b4b873b0b32.png"></p><p>OpenAI的翻译会比彩云翻译的内容更贴近上下文，对比一下:</p><p><img src="https://img.hanjiawei.com/owen/2023/06/21/6492c0586e112.jpg" alt="loading..."></p><p>上面是OpenAI的翻译，下面是彩云翻译。可以明显感觉到OpenAI翻译后的内容读起来更加流畅。</p><h2 id="输入框增强"><a href="#输入框增强" class="headerlink" title="输入框增强"></a>输入框增强</h2><p>这个功能可以让你在输入框里快速翻译，省去了输入中文-拷贝-打开翻译软件-粘贴-翻译-拷贝-粘贴到输入框这一系列繁琐的步骤，特别是在频繁的英文对话场景，这种拷贝-翻译的步骤太过繁琐了。</p><p>我经常会有一些英文在线客服对话的场景，所以这个功能也是我经常用到的。</p><p>默认是<code>//</code> 开始，输入结束后，连续三下空格翻译，翻译的内容会直接到输入框。</p><p>下面是官方对这个功能的介绍：</p><p><a href="https://s.immersivetranslate.com/videos/immpersive-translate-input-translation-demo-202307044.mp4">https://s.immersivetranslate.com/videos/immpersive-translate-input-translation-demo-202307044.mp4</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 应用推荐 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用gulp压缩hexo博客的静态资源(css,html,js,font)</title>
+      <link href="/posts/1896625805.html"/>
+      <url>/posts/1896625805.html</url>
+      
+        <content type="html"><![CDATA[<p>所有过程参考这篇文章，没踩坑，完全可用。</p><p><a href="https://akilar.top/posts/49b73b87/">使用gulp压缩博客静态资源 | Akilarの糖果屋</a></p><p>感谢Akilar</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>谈谈为什么要写博客</title>
+      <link href="/posts/3814660339.html"/>
+      <url>/posts/3814660339.html</url>
+      
+        <content type="html"><![CDATA[<p>其实我在大学期间就用hexo+github pages搭建了自己的博客，那时候其实本来就没有什么记录的意愿，纯粹是好奇心，以及部署一个自己网站带来的成就感，虽然有一些内容，但现在看来，确实内容质量太低。所以在博客搭建起来后，优化样式、折腾了一段时间后就不了了之了。下面这张图就是那时候的博客仓库。</p><p><img src="https://img.hanjiawei.com/owen/2023/06/14/648934a2dc4d8.png" alt="https://img.hanjiawei.com/owen/2023/06/14/648934a2dc4d8.png"></p><p>然后到了今年3月份的时候又重新有了搭建博客的想法，我虽然我日常也会在语雀上记录学习笔记，但是我觉得自己缺少一个对外分享的窗口。在毕业后的这几年，我能明显感觉自己的语言组织能力越来越差，有时候说句话会卡顿好几下。这也是促使我重新捡起博客的原因。我想通过一个分享者的视角，去记录我的日常，也是为了提高自己的语言组织能力。我在写博客的时候，会有一种我在与别人对话的感觉。</p><p>所以博客与笔记还是存在区别的，在我这里主要有两点：</p><ul><li>受众不同，笔记是面向自己的，博客是面向网友的。所以在写博客的时候就会更加的谨慎，会注意用词细节。</li><li>内容不同，当然这是我自己的看法，我觉得博客会偏向于记录给别人分享的内容</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给vmware虚拟机/dev/sda分区扩容</title>
+      <link href="/posts/3317844375.html"/>
+      <url>/posts/3317844375.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>docker服务、mysql服务全部挂掉，用<code>systemctl status</code>查看状态，发现报错<strong>No space left on device</strong></p><p>看一下磁盘，果然被占满了，看了下占用基本是docker占用的，没找到可以清理的，那就扩容吧。</p><p>我的服务器其实是windows上用vmware开的虚拟机。</p><h1 id="扩容步骤"><a href="#扩容步骤" class="headerlink" title="扩容步骤"></a>扩容步骤</h1><h2 id="STEP-1-vmware先分配存储"><a href="#STEP-1-vmware先分配存储" class="headerlink" title="STEP 1. vmware先分配存储"></a>STEP 1. vmware先分配存储</h2><p><img src="https://img.hanjiawei.com/owen/2023/05/31/64770791f297b.png" alt="https://img.hanjiawei.com/owen/2023/05/31/64770791f297b.png"></p><h2 id="STEP-2-fdisk-dev-sda开始分区"><a href="#STEP-2-fdisk-dev-sda开始分区" class="headerlink" title="STEP 2. fdisk &#x2F;dev&#x2F;sda开始分区"></a>STEP 2. fdisk &#x2F;dev&#x2F;sda开始分区</h2><ul><li>先执行fdisk &#x2F;dev&#x2F;sda</li><li>输入d，我准备给&#x2F;dev&#x2F;sda3扩容，我就先删除分区3</li><li>输入n，然后分区号输入3，扇区什么的都默认就行</li><li>输入w保存</li></ul><h2 id="STEP-3-xfs文件系统重新定义大小"><a href="#STEP-3-xfs文件系统重新定义大小" class="headerlink" title="STEP 3. xfs文件系统重新定义大小"></a>STEP 3. xfs文件系统重新定义大小</h2><p>我得&#x2F;dev&#x2F;sda3是xfs文件系统，所以这里我执行<code>xfs_growfs /dev/sda3 </code> 让linux知道我的&#x2F;dev&#x2F;sda3已经扩容。</p><p>注：不同文件系统命令不同，需要自己查一下。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 磁盘扩容 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java中InputStream read()一次不当使用导致的bug</title>
+      <link href="/posts/4129463891.html"/>
+      <url>/posts/4129463891.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天有个需求是需要使用到Apache的poi包去读取word文件。也就是doc和docx文件。我在引入poi之后，自己封装了一个<code>DocExtractor</code>类，里面组合了<code>XWPFDocument</code>用来读取解析docx文件。</p><p>我按照正常流程封装，写测试用例。结果测试报错如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.<span class="property">apache</span>.<span class="property">poi</span>.<span class="property">openxml4j</span>.<span class="property">exceptions</span>.<span class="property">NotOfficeXmlFileException</span>: <span class="title class_">No</span> valid entries or contents found, <span class="variable language_">this</span> is not a valid <span class="variable constant_">OOXML</span> (<span class="title class_">Office</span> <span class="title class_">Open</span> <span class="variable constant_">XML</span>) file</span><br></pre></td></tr></table></figure><p><img src="https://img.hanjiawei.com/i/2023/05/24/646e137105de5.png" alt="https://img.hanjiawei.com/i/2023/05/24/646e137105de5.png"></p><h1 id="问题解决过程"><a href="#问题解决过程" class="headerlink" title="问题解决过程"></a>问题解决过程</h1><p>起初看到这个错误，我第一时间以为是文件格式的问题，在网上搜索到的解决方案也大都是文件格式有问题，比如文件加密、doc文件直接修改后缀为docx文件、文件损坏等。</p><p>刚开始我是坚定不移的认为这是文件格式的问题，那我就先按照文件格式有问题的思路排查了一番，包括自己重新创建一个新的docx文件、用别人电脑创建等。最后发现即使我能确定我的docx文件是正确的，代码还是报错。</p><h2 id="初见猫腻"><a href="#初见猫腻" class="headerlink" title="初见猫腻"></a>初见猫腻</h2><p>在排除掉文件格式的问题之后，我就仔细排查代码，我的代码大概如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">DocExtractor</span><span class="params">(InputStream inputStream)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 根据文件头信息，获取文件类型</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> FileUtil.getFileType(inputStream);</span><br><span class="line">        <span class="type">XWPFDocument</span> <span class="variable">xwpfDocument</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">XWPFDocument</span>(inputStream);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>报错就在合格构造方法里。我就debug到这个里，一步一步看，发现inputstream在查询完他的文件类型之后，对象属性有些变化。</p><p>查询前<br><img src="https://img.hanjiawei.com/i/2023/05/24/646e15ca584bf.png" alt="https://img.hanjiawei.com/i/2023/05/24/646e15ca584bf.png"></p><p>查询后</p><p><img src="https://img.hanjiawei.com/i/2023/05/24/646e15dca54f3.png" alt="https://img.hanjiawei.com/i/2023/05/24/646e15dca54f3.png"></p><p>那就猜测是因为这几个变量变化的原因导致poi拿到了修改后的InputStream 进而导致创建XWPFDocument失败。将这行代码去掉，果然发现成功创建，也不报错了。</p><p>那么问题就出在<code>FileUtil.getFileType(inputStream)</code>里。</p><h2 id="分析原因"><a href="#分析原因" class="headerlink" title="分析原因"></a>分析原因</h2><p>为什么获取文件的类型会导致InputStream流发生变化呢？</p><p>我在网上查了一下，原因如下：</p><blockquote><p>InputStream的读取是单向的，也就是说读取顺序是按照文件中的数据存储书序来的。另外，通过.read()方法读出来的数据是个临时变量，java会自动在堆中为其分配一个内存空间，但是当.read()方法执行结束，垃圾回收器会立刻将其删除，因此在程序中.read(byte[] bytes)方法中的bytes参数才是实际上是用来存储读取出来数据的参数。如果文件保存了10个字节的数据，而bytes长度为8，那么inputStream会按照每8个字节读一次文件。</p></blockquote><p>在我的代码中，查询文件类型本身就调用了InputStream的read()方法。这就导致获取完文件类型后的InputStream是已经读取过的，进而导致构造<code>XWPFDocument</code>对象时，poi读取不到完整的文件，所以报错<code>this is not a valid OOXML</code>。</p><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>找到原因了那问题解决就简单了，可以在获取文件头信息之前借助<code>ByteArrayInputStream</code>将<code>InputStream</code>复制一份。</p><p>这个问题如果对IO流比较熟悉的人确实是很容易就能定位出这个问题。</p><p>我就对IO流的这个单向读的细节不清楚，在工作中重复读取流的场景确实这也是第一次遇见。吃一堑，长一智。有收获就是成长。</p><p>再附上ChannelInputStream中<code>bb bs b1</code>这几个成员变量的作用：</p><ul><li><code>&lt;br class=&quot;Apple-interchange-newline&quot;/&gt;bb</code> 是一个 <code>ByteBuffer</code> 对象，用于读取数据到其中。</li><li><code>bs</code> 是一个 <code>byte</code> 数组，表示读取数据的缓冲区。</li><li><code>b1</code> 是一个 <code>byte</code>，表示读取到的单个字节。</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>一次win10系统运行项目崩溃问题的解决</title>
+      <link href="/posts/2872886699.html"/>
+      <url>/posts/2872886699.html</url>
+      
+        <content type="html"><![CDATA[<p>今天新创建一个springboot项目，使用某脚手架创建的，项目搭建好之后报错：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">JRE version: Java(TM) SE Runtime Environment (8.0_261-b12) (build 1.8.0_261-b12)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Java VM: Java HotSpot(TM) 64-Bit Server VM (25.261-b12 mixed mode windows-amd64 compressed oops)</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Problematic frame:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">C  [sigar-amd64-winnt.dll+0x14ed4]</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># Failed to write core dump. Minidumps are not enabled by default on client versions of Windows</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># If you would like to submit a bug report, please visit:</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  http://bugreport.java.com/bugreport/crash.jsp</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The crash happened outside the Java Virtual Machine <span class="keyword">in</span> native code.</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">See problematic frame <span class="keyword">for</span> <span class="built_in">where</span> to report the bug.</span></span><br></pre></td></tr></table></figure><p>起初以为是JVM的问题，在JVM的配置上折腾了<code>半天</code> ，还是不见好。</p><p>然后我重点去查了一下这个错误，<code>Failed to write core dump. Minidumps are not enabled by default on client versions of Windows</code>造成这个报错的问题会有很多种情况，诸如：操作系统不支持核心转储、转储文件路径不存在、转储文件路径不合法、磁盘空间不足等都有可能造成这个错误。</p><p>基本都是windows系统的问题，但是我同样的其他项目是可以正常启动的，那就排除了是系统原因。</p><p>那我把目光又放在这句话前面这块内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Problematic frame:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">C  [sigar-amd64-winnt.dll+0x14ed4]</span></span><br></pre></td></tr></table></figure><p><code>sigar-amd64-winnt.dll</code>是一个用于获取系统信息的动态链接库，它提供了一组函数和数据结构，可以帮助程序员获取有关操作系统、CPU、内存、磁盘、网络等方面的信息。这个文件通常被用于开发各种系统工具、监控软件、性能测试程序等。</p><p>猜想或许是我引用到的sigar jar包没法正常工作，去掉sigar-1.6.4.jar的依赖，启动测试，可以正常使用了。</p><p>最后查询到原来是我使用的jdk版本和sigar一起使用就会出现这种问题，最后通过降低jdk小版本解决。</p><p>不过网上也有修复的sigar-amd64-winnt.dll文件，替换掉C:\Windows\System32下的文件可能也可以解决。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>常见tritonserver启动命令行参数</title>
+      <link href="/posts/Owen.html"/>
+      <url>/posts/Owen.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="log-相关"><a href="#log-相关" class="headerlink" title="log 相关"></a>log 相关</h2><p>triton 提供四种等级的 log：info warning error verbose，每一个选项可以分别选择是否打开。<br><code>--log-verbose &lt;integer&gt;</code><br><code>--log-info &lt;boolean&gt;</code><br><code>--log-warning &lt;boolean&gt;</code><br><code>--log-error &lt;boolean&gt;</code></p><h2 id="模型相关"><a href="#模型相关" class="headerlink" title="模型相关"></a>模型相关</h2><p><code>--model-store</code> 和 <code>--model-repository</code> 一样，指定模型仓库地址，可以多次指定<br><code>--backend-directory</code>: 指定 backend 的位置<br><code>--repoagent-directory</code>: 指定 agent 的位置<br><code>--strict-model-config</code>: true 表示一定要配置文件，false 则表示可以尝试自动填充<br><code>--model-control-mode</code>: none, poll, explicit 三种<br><code>--repository-poll-secs</code>: 轮询时长<br><code>--load-model</code>: 配合 explicit 使用，指定启动的模型<br><code>--backend-config &lt;&lt;string&gt;,&lt;string&gt;=&lt;string&gt;&gt;</code>: 给某个 backend 加上特定的选项</p><h2 id="服务相关"><a href="#服务相关" class="headerlink" title="服务相关"></a>服务相关</h2><p><code>--id</code>: 指定服务器标识符<br><code>--strict-readiness</code>: true 表示服务器和模型启动完毕才可以访问 &#x2F;v2&#x2F;health&#x2F;ready，false 表示服务器启动即可<br><code>--allow-http</code>: 开启 HTTP 服务器<br><code>--allow-grpc</code>: 开启 GRPC 服务器<br><code>--allow-sagemaker</code>: 监听 Sagemaker 的请求。<br><code>--allow-metrics</code>: 开启端口提供 prometheus 格式的使用数据<br><code>--allow-gpu-metrics</code>: 提供 GPU 相关的数据</p><p>上面每一种 allow，都有配套的其他选项，比如 http 可以设置处理线程数量，grpc 可设置是否开启 ssl 等，这里就不一一列举了，请直接 –help 查看。</p><h2 id="trace-相关"><a href="#trace-相关" class="headerlink" title="trace 相关"></a>trace 相关</h2><p>记录一条请求在 triton 中执行的整个过程，记录接受请求，请求处理，排队，计算，发送请求等的时间戳。</p><p><code>--trace-file</code>: 输出的位置<br><code>--trace-level</code>: 等级，max 会记录更多信息，比如将计算拆解成输入、输出、推理等部分。<br><code>--trace-rate</code>: 频率，比如多少个请求采样一次</p><h2 id="cuda-相关"><a href="#cuda-相关" class="headerlink" title="cuda 相关"></a>cuda 相关</h2><p><code>--pinned-memory-pool-byte-size</code>: 锁页内存的大小，可以加速 host 和 device 的数据传输，默认 256MB<br><code>--cuda-memory-pool-byte-size &lt;&lt;integer&gt;:&lt;integer&gt;&gt;</code>: 第一个数字 gpu 卡号，第二个数字显存大小，默认 64MB。<br><code>--min-supported-compute-capability &lt;float&gt;</code>: 最低的 compute capability，小于这个的就不使用。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><code>--exit-on-error</code>: 发送错误的时候退出<br><code>--exit-timeout-secs &lt;integer&gt;</code>: 当退出服务器的时候，有的请求还没处理完，这个选项指定了超时时间。<br><code>--rate-limit</code> 和 <code>--rate-limit-resource</code>: 用于限制了请求分发到模型实例上，resource 选项用来分配资源，资源满足就执行<br><code>--response-cache-byte-size &lt;integer&gt;</code>: 响应缓存的大小。·<br><code>--buffer-manager-thread-count</code>: 指定线程数量，可以加速在输入输出 tensor 上的操作。<br><code>--host-policy &lt;&lt;string&gt;,&lt;string&gt;=&lt;string&gt;</code>: NUMA( 多个物理 CPU 共享内存 ) 相关的选项，具体看<a href="https://github.com/triton-inference-server/server/blob/main/docs/optimization.md#numa-optimization">文档</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> triton </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>dubbo服务调用的扩展点简述</title>
+      <link href="/posts/2316727762.html"/>
+      <url>/posts/2316727762.html</url>
+      
+        <content type="html"><![CDATA[<p>Dubbo是一个高性能的分布式服务框架，它支持RPC协议和多种负载均衡算法。在实际应用中，Dubbo的服务调用过程中，经常需要进行各种扩展操作，以满足特定的需求。</p><p>Dubbo中内置了多个服务调用扩展点，如负载均衡扩展点、集群容错扩展点、协议扩展点等。通过这些扩展点的组合，可以实现Dubbo的高性能、高可靠性、高扩展性等特性。 Dubbo服务调用扩展点的使用 Dubbo服务调用扩展点的使用非常简单。只需要在Dubbo的配置文件中，将相应的扩展点配置到对应的标签中即可。下面以负载均衡扩展点为例，介绍Dubbo服务调用扩展点的使用方法。 首先，在Dubbo的配置文件中，需要配置相应的负载均衡扩展点：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">id</span>=<span class="string">&quot;demoService&quot;</span> <span class="attr">interface</span>=<span class="string">&quot;com.xxx.demo.DemoService&quot;</span> <span class="attr">loadbalance</span>=<span class="string">&quot;roundrobin&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>在上述配置中，loadbalance属性指定了负载均衡扩展点的类型。Dubbo中支持的负载均衡算法有很多种，比如RoundRobin、Random、LeastActive等。根据实际情况选择相应的负载均衡算法即可。 Dubbo还支持自定义扩展点。只需要实现Dubbo的扩展接口，然后在Dubbo的配置文件中将扩展点配置到对应的标签中即可。比如，自定义一个MyExt扩展点，实现如下：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.dubbo.ext;</span><br><span class="line"><span class="keyword">import</span> org.apache.dubbo.common.extension.SPI;</span><br><span class="line"><span class="meta">@SPI</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MyExt</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">doSomething</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在Dubbo的配置文件中，需要配置相应的MyExt扩展点：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:reference</span> <span class="attr">id</span>=<span class="string">&quot;demoService&quot;</span> <span class="attr">interface</span>=<span class="string">&quot;com.xxx.demo.DemoService&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dubbo:method</span> <span class="attr">name</span>=<span class="string">&quot;sayHello&quot;</span> <span class="attr">timeout</span>=<span class="string">&quot;3000&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dubbo:ext</span> <span class="attr">name</span>=<span class="string">&quot;myExt&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.xxx.dubbo.ext.MyExtImpl&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dubbo:method</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dubbo:reference</span>&gt;</span></span><br></pre></td></tr></table></figure><p>在上述配置中，ext标签的name属性指定了扩展点的名称，class属性指定了扩展点的实现类。</p><p>Dubbo的扩展点机制基于Java的SPI机制，实现非常简单。只需要定义一个接口，并在接口上添加@SPI注解即可。 在Dubbo的服务调用过程中，Dubbo会自动加载并调用相应的扩展点。</p><p>Dubbo支持多种扩展点类型，比如过滤器扩展点、负载均衡扩展点、容错扩展点等。</p><p>Dubbo中提供了多个服务调用扩展点，包括InvokerListener、Filter、Cluster等等。</p><ul><li>InvokerListener是Dubbo中的一个服务调用监听器扩展点，它可以监听Dubbo服务调用的开始和结束事件，可以用来进行服务调用的日志记录、性能统计等操作。我们可以通过实现InvokerListener接口来自定义服务调用的监听器，并将其注册到Dubbo框架中。</li><li>Filter是Dubbo中的一个服务调用过滤器扩展点，它可以对服务调用进行拦截和处理，可以用来进行服务调用的权限控制、异常处理等操作。Dubbo中提供了多个内置的Filter，如AccessLogFilter、ClassLoaderFilter、ExceptionFilter等等，我们也可以通过实现Filter接口来自定义服务调用过滤器，并将其注册到Dubbo框架中。</li><li>Cluster是Dubbo中的一个服务调用集群扩展点，它可以对多个服务提供者进行集群管理，可以用来进行负载均衡、容错处理等操作。Dubbo中提供了多个内置的Cluster实现，如FailoverCluster、FailfastCluster、FailsafeCluster等等，我们也可以通过实现Cluster接口来自定义服务调用集群，并将其注册到Dubbo框架中。 通过Dubbo的服务调用扩展点，我们可以对服务调用进行各种扩展和定制化操作，可以使得Dubbo框架更加灵活和可扩展。</li></ul><p>在使用Dubbo的服务调用扩展点时，需要注意以下几点：</p><ol><li>扩展点的实现必须符合Dubbo框架的规范，包括实现特定的接口、实现特定的方法等等。</li><li>扩展点的注册必须在Dubbo框架初始化之前完成，否则可能会出现注册失败或者无效的情况。</li><li>扩展点的使用必须在Dubbo框架启动之后，否则可能会出现空指针或者其他异常。</li><li>扩展点的开发和使用需要根据实际需求进行，不要盲目添加和使用扩展点，否则可能会影响系统的性能和稳定性。 总之，Dubbo的服务调用扩展点是Dubbo框架的一个重要特性，可以帮助我们对服务调用进行各种扩展和定制化操作，提高系统的灵活性和可扩展性。在实际应用中，我们可以根据具体需求来选择和使用Dubbo的服务调用扩展点，并进行适当的优化和定制化。</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>再谈谈redis如何保证高可用</title>
+      <link href="/posts/3153732768.html"/>
+      <url>/posts/3153732768.html</url>
+      
+        <content type="html"><![CDATA[<p>Redis是基于<code>哨兵(Sentiel)</code>实现高可用</p><h2 id="一-哨兵的介绍"><a href="#一-哨兵的介绍" class="headerlink" title="一. 哨兵的介绍"></a>一. 哨兵的介绍</h2><p>sentinel，中文名是哨兵。sentinel本质上是运行在特殊模式下的Redis服务器</p><p>哨兵主要有以下几个功能：</p><ul><li>故障转移：如果master节点挂了，会自动转移到slave节点上</li><li>集群监控：监控master和slave节点是否正常工作</li><li>消息通知：如果某个节点故障了，哨兵负责发送告警信息</li><li>配置中心：如果发生了故障转移，告知client新的master地址</li></ul><p>哨兵用于实现redis集群的高可用，本身就是分布式的，是作为一个哨兵集群去运行的，哨兵之间互相协同工作：</p><ul><li>故障转移时，判断一个master是否宕机，需要大部分的哨兵都同意，涉及到分布式选举的问题。</li><li>即使部分哨兵节点挂掉，哨兵集群还是能够正常工作的</li></ul><h2 id="二-哨兵集群怎么组建的"><a href="#二-哨兵集群怎么组建的" class="headerlink" title="二. 哨兵集群怎么组建的"></a>二. 哨兵集群怎么组建的</h2><p>在创建初始化sentinel的时候，sentinel会创建两个连接到master节点的连接</p><ol><li>命令连接：用于向master发送命令并获取返回结果</li><li>订阅连接：专门用于订阅master的__sentinel__:hello频道</li></ol><p>命令连接是sentinel给master发送命令使用；<br>__sentinel__:hello频道主要是用来给多个哨兵之间互相发现，比如哨兵1将自己的ip和端口信息pub到master的这个频道，那么订阅了这个频道的哨兵2肯定就能知道哨兵A的信息；此时哨兵1和2就能建立<code>命令连接</code>：<br><img src="db-redis-sen-6.jpg" title="" alt="" data-align="center"></p><h2 id="三-哨兵怎么监控Redis集群"><a href="#三-哨兵怎么监控Redis集群" class="headerlink" title="三. 哨兵怎么监控Redis集群"></a>三. 哨兵怎么监控Redis集群</h2><p>哨兵会跟master建立一个命令连接。哨兵2给master发送INFO命令，master收到这个命令会返回两个信息：</p><ol><li>master自身的信息，包括run_id域记录的服务器运行id，以及role域记录的服务器角色</li><li>还有是master下单的所有slave服务器信息，每个slave服务器都由一个“slave”字符串开发的行来记录，每行都记录了slave服务器的ip地址和端口信息。通过此信息，sentinel可以自己发现slave服务器。</li></ol><p>同样的 当sentinel拿到slave服务器信息时，也会建立到slave服务器的<code>命令连接</code>和<code>订阅连接</code><br><img src="db-redis-sen-7.jpg" title="" alt="" data-align="center"></p><p><strong>以下是INFO命令返回信息示例：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># server</span><br><span class="line">run_id: xxxxxxxxxxxxxxxxxxxxxx</span><br><span class="line"># Replication</span><br><span class="line">role: master</span><br><span class="line"></span><br><span class="line">slave0:ip=192.168.1.2,port=1111,state=online,offset=43,lag=0</span><br><span class="line">slave1:ip=192.168.1.3,port=1112,state=online,offset=43,lag=0</span><br><span class="line">slave2:ip=192.168.1.4,port=1113,state=online,offset=43,lag=0</span><br></pre></td></tr></table></figure><h2 id="四-master下线怎么判定"><a href="#四-master下线怎么判定" class="headerlink" title="四. master下线怎么判定"></a>四. master下线怎么判定</h2><p>master下线分为<strong>主观下线</strong>和<strong>客观下线</strong></p><ul><li><strong>主观下线</strong>：任何一个哨兵都是可以监控探测，并作出Redis节点下线的判断；</li><li><strong>客观下线</strong>：有哨兵集群共同决定Redis节点是否下线；</li></ul><p>当某个哨兵（如下图中的哨兵2）判断主库“主观下线”后，就会给其他哨兵发送 <code>is-master-down-by-addr</code> 命令。接着，其他哨兵会根据自己和主库的连接情况，做出 Y 或 N 的响应，Y 相当于赞成票，N 相当于反对票。</p><p>如果赞成票数（这里是2）是大于等于哨兵配置文件中的 <code>quorum</code> 配置项（比如这里如果是quorum&#x3D;2）, 则可以判定主库<strong>客观下线</strong>了。</p><img src="db-redis-sen-2.jpg" title="" alt="1" data-align="center"><h2 id="五-选举领头Sentinel"><a href="#五-选举领头Sentinel" class="headerlink" title="五. 选举领头Sentinel"></a>五. 选举领头Sentinel</h2><p>为了保证高可用，哨兵一般都是作为哨兵集群存在的。作为集群，必然会涉及到选举问题，就是主节点选举问题。因为控制redis的故障转移和通知只需要一个主的哨兵节点。</p><blockquote><p>所以在master(主库)客观下线后，先要选出一个Leader sentinel以进行后面的故障转移和通知操作。</p></blockquote><p>哨兵的选举机制就是经典的Raft选举算法：</p><blockquote><p>选举的票数大于一半的哨兵数时，将成为主哨兵节点，否则继续选举。</p></blockquote><p>任何一个想成为Leader的哨兵，都首先要满足这两个条件：</p><ol><li>拿到半数以上的选票</li><li>拿到的票数要大于等于哨兵配置文件中的quorum值。</li></ol><h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>现在有3个哨兵组成一个哨兵集群，此时配置的quorum&#x3D;2，那么任何一个想成为Leader的哨兵只要能拿到2张选票就可以。<br>因为拿到2张票，<strong>2&gt;半数哨兵</strong> 且 <strong>2&gt;&#x3D;quorum</strong></p><h2 id="六-故障转移"><a href="#六-故障转移" class="headerlink" title="六. 故障转移"></a>六. 故障转移</h2><p>选出Leader哨兵后，它将会对已下线的主库进行故障转移操作，主要是三个步骤：</p><ol><li>在已下线的主节点的所有从节点中，挑选一个从节点，并将其转为主节点</li><li>让已下线的主节点下的所有从节点改为复制新的主节点</li><li>将已下线的主节点设置为新的主节点的从节点，当旧的主节点重新上线时，他就成为新的主节点的从节点。</li></ol><h3 id="选出新的主节点"><a href="#选出新的主节点" class="headerlink" title="选出新的主节点"></a>选出新的主节点</h3><p>新的主节点如何挑选，Leader哨兵将旧的主节点的所有从节点保存到一个列表，然后按照以下规则，一项一项过滤</p><ol><li>删除列表中所有断线的从节点</li><li>删除列表中最近5s没有回复过Leader哨兵INFO命令的从节点</li><li>删除所有与已下线主节点连接断开<code>down-after-milliseconds*10</code>毫秒的从服务器</li><li>再根据<code>salve-priority</code>配置的优先级，对剩余的从节点进行排序，选择优先级最高的从节点</li><li>如果有优先级相同的，选择复制偏移量最大的</li><li>如果还有多个按照run-id，选择run-id最小的</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+            <tag> redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用@microsoft/fetch-event-source未关闭连接导致的问题</title>
+      <link href="/posts/2113118892.html"/>
+      <url>/posts/2113118892.html</url>
+      
+        <content type="html"><![CDATA[<p>今天清明节，放假一天，碰巧是个下雨天，本来打算早上睡个大懒觉，可是毕竟周三本来应该是工作日，早上8点，生物钟准时叫醒我。</p><p>就想着今天继续把网站上接入的聊天机器人完善一下，前几天用event-source小小改造一番，配置SpringSse可以流式获取数据，今天打算加上markdown渲染的功能，开发过程虽然算不上一切顺利，但也好在没什么大问题。</p><p>本地测试一切顺利，ok，部署。</p><p>万万没想到有个隐藏的bug，就是每次切换页面回来，就会自动发起一次请求，起初以为是UseEffect导致的，排查一番，不是。又以为是event-source的onOpen时间导致的。依然不是。</p><p>最终经过摸索发现，之前的请求虽然都完全返回了，但是连接没有断开，然后离开页面会导致连接关闭,再次进入页面就会自动重试。</p><blockquote><p>经过@tqf朋友的评论提醒，离开页面导致的连接断开可以通过设置 openWhenHidden: true来避免</p></blockquote><p>问题找到了，那么就是找到方法，想到只要从client或者server端断开连接即可。去看了看SseEmitter的API发现没有close的方法，再去看看@microsoft&#x2F;fetch-event-source也没有close方法</p><p>最终在@microsoft&#x2F;fetch-event-source的issue下找到了一个方法<br><strong>使用AbortController断开连接</strong></p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> abortController = <span class="keyword">new</span> <span class="title class_">AbortController</span>();</span><br><span class="line"><span class="keyword">const</span> signal = abortController.<span class="property">signal</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetchEventSource</span>(<span class="string">`api/gpt/streamchat`</span>, &#123;</span><br><span class="line">    <span class="attr">signal</span>: signal,  <span class="comment">// 传入signal</span></span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;POST&quot;</span>,</span><br><span class="line">    <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">        <span class="string">&quot;message&quot;</span>: message,</span><br><span class="line">        <span class="string">&quot;id&quot;</span>: id,</span><br><span class="line">        <span class="string">&quot;isContext&quot;</span>: isContext</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="title function_">onmessage</span>(<span class="params">event</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (event.<span class="property">data</span>===<span class="string">&quot;[DONE]&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果server端发送数据结束，断开连接</span></span><br><span class="line">            abortController.<span class="title function_">abort</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="title class_">Accept</span>: <span class="string">&quot;text/event-stream&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;[fetchEventSource res]&quot;</span>, r)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>聊聊今天都干了什么</title>
+      <link href="/posts/2274212304.html"/>
+      <url>/posts/2274212304.html</url>
+      
+        <content type="html"><![CDATA[<p>2023年3月29日，天气晴朗，温度适宜，穿上卫衣+外套刚刚好。</p><p>我个人的主站，已经稍微能看了，但是很多样式上的bug还是很多，而且项目数据还是mock数据。</p><p>现在是23:12分，今天对我的主站加了些什么东西呢？</p><ul><li><p>增加了黑暗模式，点击sidebar上的表情就可以切换</p></li><li><p>对sidebar上的条目进行了优化，页面和链接跳转分开来了</p><img title="" src="聊聊今天都干了什么/Snipaste_2023-03-29_23-16-37.png" alt="" data-align="center" width="94"></li><li><p>增加了email、twitter、blog的跳转地址</p></li><li><p>增加了页面的懒加载</p></li></ul><p>明天加油👍</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>记录经常使用的hexo command</title>
+      <link href="/posts/1411323245.html"/>
+      <url>/posts/1411323245.html</url>
+      
+        <content type="html"><![CDATA[<p>以下是我在发表博客的时候用到的hexo命令,在此记录一下，会不断完善</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;index&quot;</span> <span class="comment"># 新建一个页面 </span></span><br><span class="line">hexo new post <span class="string">&quot;文章标题&quot;</span>   <span class="comment"># 创建一个文章，标题是“文章标题”</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除缓存文件(db.json)以及已经生产的静态文件(public) 这个命令一般在修改主题后才会执行，因为有时候对站点配置的修改一直不生效。</span></span><br><span class="line">hexo clean  [非必须]            </span><br><span class="line"></span><br><span class="line">hexo g   <span class="comment"># hexo generate 生成静态文件</span></span><br><span class="line">hexo d   <span class="comment"># 部署网站</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
